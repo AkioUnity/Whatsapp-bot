@@ -8,9 +8,9 @@ import { fetchList } from "./actions";
 import {logout} from "../LoginContainer/actions";
 import {bindActionCreators} from "redux";
 
-import { NavigationActions } from "react-navigation";
+import { NavigationActions, StackActions } from "react-navigation";
 
-const resetAction = NavigationActions.reset({
+const resetAction = StackActions.reset({
 	index: 0,
 	actions: [NavigationActions.navigate({ routeName: "Login" })],
 });

@@ -1,5 +1,4 @@
 // @flow
-import {AsyncStorage} from "react-native";
 import storage from 'redux-persist/lib/storage' // defaults to localStorage for web and AsyncStorage for react-native
 import {composeWithDevTools} from "remote-redux-devtools";
 import {createStore, applyMiddleware} from "redux";
@@ -16,7 +15,7 @@ if (__DEV__) {
 
 const persistConfig = {
     key: 'root',
-    storage
+    storage,
 };
 
 const compose = composeWithDevTools({realtime: true, fport: 8000});

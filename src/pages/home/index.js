@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, {Component} from 'react';
 import {
   Container,
   Header,
@@ -11,13 +11,13 @@ import {
   Right,
   Body,
   Footer,
-  FooterTab
-} from "native-base";
-import styles from "./styles";
-import global from "../../global/styles";
-import {Image, ImageBackground, TouchableOpacity, View,Linking} from "react-native";
-import AdFooter from "../base";
-const logoImage = require("../../../assets/images/logo0.png");
+  FooterTab,
+} from 'native-base';
+import styles from './styles';
+import global from '../../global/styles';
+import {Image, ImageBackground, TouchableOpacity, View,Linking} from 'react-native';
+import AdFooter from '../base';
+const logoImage = require('../../../assets/images/logo0.png');
 class Home extends Component {
   render() {
     return (
@@ -31,7 +31,7 @@ class Home extends Component {
 
 
           <Content padder style={global.watermarkOpacity}>
-            <Button transparent onPress={() => this.props.navigation.navigate("DrawerOpen")} >
+            <Button transparent onPress={() => this.props.navigation.navigate('DrawerOpen')} >
               <Icon name="menu"/>
             </Button>
             <View style={{alignItems: 'center'}}>
@@ -41,7 +41,7 @@ class Home extends Component {
                 <View style={styles.logoRight}>
                   <Text style={styles.reportText}>Submit Report</Text>
                   <TouchableOpacity activeOpacity={0.5} style={global.button}
-                                  onPress={() => this.props.navigation.navigate("CategoryRoute")}>
+                                  onPress={() => this.props.navigation.navigate('CategoryRoute')}>
                   <Image style={styles.goArrow} resizeMode="contain" source={require('../../../assets/images/goArrow.png')}/>
                   </TouchableOpacity>
                 </View>
@@ -60,7 +60,7 @@ class Home extends Component {
             <Text style={styles.specText}>* If you receive a satisfaction survey after using SiN, Please respond to help us improve our product and services.</Text>
             <View style={{flex: 1, flexDirection: 'row', justifyContent: 'space-around'}}>
               <TouchableOpacity activeOpacity={0.5} style={global.button}
-                                onPress={() => this.props.navigation.navigate("Login")}>
+                                onPress={() => this.props.navigation.navigate('Login')}>
                 <Image style={{width: 50, flex: 1}} resizeMode="contain"
                        source={require('../../../assets/images/login_icon.png')}/>
                 <Text style={styles.loginText}>Log in</Text>

@@ -1,16 +1,25 @@
-import React, { Component } from "react";
+import React, {Component} from 'react';
 import {
-  Title,Footer
-} from "native-base";
+    Text, Footer, Button, Icon,FooterTab,
+} from 'native-base';
 
 class AdFooter extends Component {
-  render() {
-    return (
-      <Footer >
-        <Title style={{paddingTop:10}}>Your AD Here</Title>
-      </Footer>
-    );
-  }
+    render() {
+        return (
+          <Footer>
+              <FooterTab>
+                  <Button vertical>
+                      <Icon name="apps"/>
+                      <Text>Apps</Text>
+                  </Button>
+                  <Button vertical>
+                      <Icon name="camera"/>
+                      <Text>Camera</Text>
+                  </Button>
+              </FooterTab>
+          </Footer>
+        );
+    }
 }
 
 export default AdFooter;
