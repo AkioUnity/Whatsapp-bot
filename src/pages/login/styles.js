@@ -30,15 +30,13 @@ const styles: any = StyleSheet.create({
     fontSize: 12,
   },
   logoImage:{
-    width: h*0.1*0.5,
-    height:h*0.1*0.5,
+    width: w*0.8,
     margin:h*0.1*0.5*0.5
   },
   loginRadius:{
-    backgroundColor: '#173885',
+    backgroundColor: '#387EF5',
     width:width,
-    height:40,
-    borderRadius: 20,
+    height:50,
     margin:h*0.03,
   },
   loginText:{

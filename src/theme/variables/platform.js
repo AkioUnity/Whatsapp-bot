@@ -136,13 +136,13 @@ export default {
 
   // Footer
   footerHeight: deviceHeight * 0.07,
-  footerDefaultBg:'#4472C4' ,
+  footerDefaultBg:'#ebe5f4' ,
   footerPaddingBottom: 2,
 
   // FooterTab
-  tabBarTextColor: '#f987a0',
-  tabBarTextSize: 17,
-  activeTab: platform === 'ios' ? '#007aff' : '#fff',
+  tabBarTextColor: '#1d1d1e',
+  tabBarTextSize: 9,
+  activeTab : '#007aff',
   sTabBarActiveTextColor: '#007aff',
   tabBarActiveTextColor: platform === 'ios' ? '#007aff' : '#fff',
   tabActiveBgColor: platform === 'ios' ? '#cde1f9' : '#3F51B5',

@@ -64,7 +64,7 @@ class LoginForm extends React.Component<Props, State> {
 		const { handleSubmit } = this.props;
 		return (
 			<Item inlineLabel error={error && touched} disabled={isLoading} style={styles.inputRadius}>
-				<Label>{input.name === "email" ? "email address" : "password"}</Label>
+				<Icon active name={input.name === "email" ? "people" : "lock"}/>
 				{/*<Icon active name={input.name === "email" ? "person" : "unlock"} />*/}
 				<Input
 					// style={{color: isLoading ? "white" : "black"} }
@@ -72,7 +72,7 @@ class LoginForm extends React.Component<Props, State> {
 					returnKeyType={ input.name === "email" ? "next" : "go"}
 					autoCapitalize="none"
 					ref={ (c) => {this.inputs[input.name] = c;}}
-					// placeholder={input.name === "email" ? "Email Address" : "Password"}
+					placeholder={input.name === "email" ? "Email" : "Password"}
 					secureTextEntry={input.name === "password"}
 					underlineColorAndroid="transparent"
 					onSubmitEditing={input.name === "password" ? handleSubmit(this.onSubmit) : () => {this.inputs.password._root.focus();}}
@@ -121,11 +121,7 @@ class LoginForm extends React.Component<Props, State> {
 		const form = (
 			<Form>
 				<Field name="email" component={this.renderInput} validate={[required]} />
-				<Field
-					name="password"
-					component={this.renderInput}
-					validate={[minLength8, maxLength15, required]}
-				/>
+				<Field name="password" component={this.renderInput}	validate={[required]}/>
 			</Form>
 		);
 		return <Container>

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Image} from 'react-native';
 import global from '../../global/styles';
-import {    Container,    Content,    Button,    Text,    View,    Icon,    Spinner } from 'native-base';
+import {Container, Content, Button, Text, View, Icon, Spinner} from 'native-base';
 // import {LoginButton, AccessToken} from 'react-native-fbsdk';
 import styles from './styles';
 import AdFooter from '../base';
@@ -27,15 +27,13 @@ class Login extends React.Component<Props, State> {
         console.log('Login render isLoading:' + isLoading);
         return (
           <Container>
-              <Content padder style={global.watermarkOpacity}>
-                  <Button transparent onPress={() => this.props.navigation.navigate('DrawerOpen')}>
-                      <Icon name="menu"/>
-                  </Button>
+              <Content padder>
+                  {/*<Button transparent onPress={() => this.props.navigation.navigate('DrawerOpen')}>*/}
+                      {/*<Icon name="menu"/>*/}
+                  {/*</Button>*/}
                   <View style={{alignItems: 'center'}}>
-                      <View style={styles.whiteCircle}>
-                          <Image square style={styles.logoImage} resizeMode="contain"
-                                 source={require('../../../assets/images/logo0.png')}/>
-                      </View>
+                      <Image square style={styles.logoImage} source={require('../../../assets/whatsapp/lamoga.png')}/>
+
                       <Text style={styles.loginText}>Log in</Text>
                       {this.props.loginForm}
                       {
@@ -45,16 +43,19 @@ class Login extends React.Component<Props, State> {
                             (
                               <View>
                                   <Button full onPress={this.props.onSubmit} style={styles.loginRadius}>
-                                      <Text style={{fontSize: 12}}>log in</Text>
+                                      <Text style={{fontSize: 14}}>Log-in</Text>
                                   </Button>
                               </View>
                             )}
-                      <Image square style={styles.loginImage} resizeMode="contain"
-                             source={require('../../../assets/images/login00.png')}/>
 
                       <View>
                           <Button transparent onPress={() => this.props.navigation.navigate('SignUpRoute')}>
-                              <Text style={{fontSize: 14}}>CREATE ACCOUNT</Text>
+                              <Text style={{fontSize: 14}}>Forgot your Password?</Text>
+                          </Button>
+                      </View>
+                      <View>
+                          <Button transparent onPress={() => this.props.navigation.navigate('SignUpRoute')}>
+                              <Text style={{fontSize: 14}}>Privacy Policy</Text>
                           </Button>
                       </View>
                   </View>

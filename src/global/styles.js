@@ -49,10 +49,7 @@ const styles = StyleSheet.create({
   watermark: {
     flex:1
   },
-  watermarkOpacity: {
-    backgroundColor: '#B0DAE6'
-  },
-  backBtn:{
+    backBtn:{
     width: 25,
     height:25,
     margin: 15

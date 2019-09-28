@@ -10,11 +10,11 @@ class AdFooter extends Component {
               <FooterTab>
                   <Button vertical>
                       <Icon name="apps"/>
-                      <Text>Apps</Text>
+                      <Text>Mein Berat</Text>
                   </Button>
                   <Button vertical>
                       <Icon name="camera"/>
-                      <Text>Camera</Text>
+                      <Text>cockpit</Text>
                   </Button>
               </FooterTab>
           </Footer>
