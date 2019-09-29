@@ -4,6 +4,15 @@ export const REPORT = 'REPORT';
 export const USER_REPORT = 'USER_REPORT';
 export const FETCH_ATTEMPT= 'FETCH_ATTEMPT';
 
+export const SET_USER = 'SET_USER';
+
+export function setUser(user:string):Action {
+  return {
+    type: SET_USER,
+    payload: user,
+  };
+}
+
 export function fetchIsLoading(bool: boolean) {
   return {
     type: FETCH_ATTEMPT,

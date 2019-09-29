@@ -47,7 +47,6 @@ class Login extends React.Component<Props, State> {
                                   </Button>
                               </View>
                             )}
-
                       <View>
                           <Button transparent onPress={() => this.props.navigation.navigate('SignUpRoute')}>
                               <Text style={{fontSize: 14}}>Forgot your Password?</Text>
@@ -60,7 +59,7 @@ class Login extends React.Component<Props, State> {
                       </View>
                   </View>
               </Content>
-              <AdFooter/>
+              <AdFooter navigation={ this.props.navigation }/>
           </Container>
         );
     }

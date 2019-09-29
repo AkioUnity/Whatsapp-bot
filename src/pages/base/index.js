@@ -4,16 +4,19 @@ import {
 } from 'native-base';
 
 class AdFooter extends Component {
+    constructor(props) {
+        super(props);
+    }
     render() {
         return (
           <Footer>
               <FooterTab>
-                  <Button vertical>
-                      <Icon name="apps"/>
+                  <Button vertical onPress={() => this.props.navigation.navigate('Login')}>
+                      <Icon name="contact"/>
                       <Text>Mein Berat</Text>
                   </Button>
-                  <Button vertical>
-                      <Icon name="camera"/>
+                  <Button vertical onPress={() => this.props.navigation.navigate('HomeRoute')}>
+                      <Icon name="bookmarks"/>
                       <Text>cockpit</Text>
                   </Button>
               </FooterTab>
