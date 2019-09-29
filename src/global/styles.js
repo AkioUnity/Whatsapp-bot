@@ -6,6 +6,11 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: "#B0DAE6"
   },
+  logoImage:{
+    alignSelf: 'center',
+    width: w*0.8,
+    margin:h*0.1*0.5*0.5
+  },
   loginHeader: {
     height: 100,
     backgroundColor: "#ECECEC"

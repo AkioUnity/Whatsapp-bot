@@ -110,11 +110,8 @@ class LoginForm extends React.Component<Props, State> {
     checkError() {
         if (this.props.hasError) {
             const error = this.props.lastError.message;
-            let message = 'Email or Password is wrong';
-            console.log(message);
-            console.log(error);
             // Add a Toast on screen.
-            Toast.show(message, {
+            Toast.show(error, {
                 duration: Toast.durations.LONG,
                 position: Toast.positions.BOTTOM,
                 shadow: true,

@@ -29,10 +29,6 @@ const styles: any = StyleSheet.create({
     padding:h*0.02,
     fontSize: 12,
   },
-  logoImage:{
-    width: w*0.8,
-    margin:h*0.1*0.5*0.5
-  },
   loginRadius:{
     backgroundColor: '#387EF5',
     width:width,

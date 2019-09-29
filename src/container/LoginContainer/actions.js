@@ -60,8 +60,6 @@ export function doLogin(userValues: Object) {
     return dispatch => {
         //Dispatch loading to show Spinner on screen
         dispatch(loginIsLoading(true));
-        userValues.userName = 'akioUnity@gmail.com';
-        userValues.password = 'godjwth101';
         console.log('login:', userValues.userName, userValues.password);
         let formdata = new FormData();
         formdata.append('username', userValues.userName);
@@ -75,16 +73,15 @@ export function doLogin(userValues: Object) {
             },
             body: formdata,
         }).then(response => {
+            dispatch(loginIsLoading(false));
             if (response.status >= 200 && response.status <= 304) {
                 response.json().then(data => {
-                    //After sucess identified, dispatch isLoading false
                     console.log(data);
-                    dispatch(loginIsLoading(false));
                     if (data.length === 0) {
                         dispatch(loginFailed(new Error('No found')));
                     } else {
                         // data=JSON.parse(data);
-                        if (data.status = 'ok') {
+                        if (!data.error) {
                             const userData = data.user;
                             console.log('userData: ', userData);
                             dispatch(setUser(userData));
@@ -95,12 +92,10 @@ export function doLogin(userValues: Object) {
                     }
                 });
             } else {
-                dispatch(loginIsLoading(false));
                 console.log(response);
             }
         })
           .catch(error => {
-              // If any other error occurs
               dispatch(loginIsLoading(false));
               dispatch(loginFailed(error));
           });
