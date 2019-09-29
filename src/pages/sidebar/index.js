@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import { Image ,FlatList } from "react-native";
-import { connect } from "react-redux";
-import {bindActionCreators} from "redux";
+import React, { Component } from 'react';
+import { Image ,FlatList } from 'react-native';
+import { connect } from 'react-redux';
+import {bindActionCreators} from 'redux';
 import {
   Content,
   Text,
@@ -9,33 +9,33 @@ import {
   Icon,
   Container,
   Left,
-  Button
-} from "native-base";
-import styles from "./style";
-import {NavigationActions,StackActions} from "react-navigation";
-import {logout} from "../../container/LoginContainer/actions";
+  Button,
+} from 'native-base';
+import styles from './style';
+import {NavigationActions,StackActions} from 'react-navigation';
+import {logout} from '../../container/LoginContainer/actions';
 
-const drawerImage = require("../../../assets/logo-kitchen-sink.png");
+// const drawerImage = require('../../../assets/logo-kitchen-sink.png');
 const datas = [
   {
-    name: "Home",
-    key: "Home",
-    route: "Home",
-    icon: "home",
-    url:"no"
+    name: 'Home',
+    key: 'Home',
+    route: 'Home',
+    icon: 'home',
+    url:'no',
   },
   {
-    name: "Submit a Report",
-    key: "ReportRoute",
-    route: "ReportRoute",
-    icon: "report",
-    url:"no"
-  }
+    name: 'Submit a Report',
+    key: 'ReportRoute',
+    route: 'ReportRoute',
+    icon: 'report',
+    url:'no',
+  },
 ];
 
 const resetAction = StackActions.reset({
   index: 0,
-  actions: [NavigationActions.navigate({ routeName: "Login" })],
+  actions: [NavigationActions.navigate({ routeName: 'Login' })],
 });
 
 class SideBar extends Component {
@@ -43,7 +43,7 @@ class SideBar extends Component {
     super(props);
     this.state = {
       shadowOffsetWidth: 1,
-      shadowRadius: 2
+      shadowRadius: 2,
     };
   }
 
@@ -58,10 +58,10 @@ class SideBar extends Component {
       <Container>
         <Content
           bounces={false}
-          style={{ flex: 1, backgroundColor: "#333333" }}
+          style={{ flex: 1, backgroundColor: '#333333' }}
         >
           {/*<Image source={drawerCover} style={styles.drawerCover} />*/}
-          <Image square style={styles.drawerCover} source={drawerImage} />
+          {/*<Image square style={styles.drawerCover} source={drawerImage} />*/}
 
           <FlatList
             data={datas}
@@ -97,13 +97,13 @@ class SideBar extends Component {
 function matchDispatchToProps(dispatch) {
   return bindActionCreators({
     // fetchList: fetchList,
-    doLogout: logout
+    doLogout: logout,
   }, dispatch);
 }
 
 const mapStateToProps = state => ({
   data: state.moreReducer.list,
-  isLoading: state.moreReducer.isLoading
+  isLoading: state.moreReducer.isLoading,
 });
 
 export default connect(mapStateToProps, matchDispatchToProps)(SideBar);

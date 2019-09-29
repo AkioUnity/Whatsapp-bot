@@ -8,8 +8,6 @@ import global from '../../global/styles';
 import {Image, ImageBackground, TouchableOpacity, View, Switch, Linking} from 'react-native';
 import AdFooter from '../base';
 
-const logoImage = require('../../../assets/images/logo0.png');
-
 class Home extends Component {
 
     state = {switchValue: false}
