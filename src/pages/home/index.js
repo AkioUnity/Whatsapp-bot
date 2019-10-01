@@ -42,7 +42,7 @@ class Home extends Component {
                           </Right>
                       </CardItem>
                       <CardItem footer bordered>
-                          <Text>number of whatsapp requests: 5</Text>
+                          <Text>number of whatsapp requests: {this.props.request_cn}</Text>
                       </CardItem>
                   </Card>
 

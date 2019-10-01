@@ -71,7 +71,7 @@ export function doLogin(userValues: Object) {
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'multipart/form-data',
-                Authorization: 'Basic ZGVtbzpkZW1v',
+                Authorization: Config.Authorization,
             },
             body: formdata,
         }).then(response => {

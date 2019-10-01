@@ -35,19 +35,16 @@ export function reportUserSuccess(response: Object) {
   };
 }
 
-export function reportData(report: Object) {
+export function cockpit_request(report: Object) {
   return dispatch => {
-    fetch(Config.BASE_URL+'/users/report', {
+    let formdata = new FormData();
+    formdata.append('action', 'cockpit_request');
+    fetch(Config.AJAX_URL, {
       method: "post",
       headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
+        Authorization: Config.Authorization,
       },
-      body: JSON.stringify({
-        what_text: report.what_text,
-        where_text: report.where_text,
-        other_text: report.other_text,
-      })
+      body: formdata
     }).then(response => {
       response.json().then(data => {
         console.log(data);

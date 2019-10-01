@@ -2,7 +2,7 @@ import type { Action } from '../actions/types';
 import {REPORT, USER_REPORT,FETCH_ATTEMPT} from "../actions/user";
 
 const initialState = {
-  report_id: 0,
+  request_cn: 0,
   user_id:0,
   isLoading:false,
   lastError: undefined,
@@ -13,7 +13,7 @@ export default function (state:any = initialState, action:Action){
     case REPORT:
       return {
         ...state,
-        report_id: action.response.report_id,
+        request_cn: action.response.count,
       };
     case USER_REPORT:
       return {
