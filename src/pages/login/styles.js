@@ -36,8 +36,14 @@ const styles: any = StyleSheet.create({
     margin:h*0.03,
   },
   loginText:{
-    fontSize: 17, color: '#000',
-    marginBottom:h*0.05
+    fontSize: 20, color: '#000',
+    margin:w*0.1,
+    textAlign: 'center'
+  },
+  helloText:{
+    fontSize: 25, color: '#000',
+    margin:w*0.1,
+    marginBottom:w*0.5,
   },
   loginImage:{
     width: 150,

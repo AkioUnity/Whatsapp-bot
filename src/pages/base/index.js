@@ -13,11 +13,11 @@ class AdFooter extends Component {
               <FooterTab>
                   <Button vertical onPress={() => this.props.navigation.navigate('Login')}>
                       <Icon name="contact"/>
-                      <Text>Mein Berat</Text>
+                      <Text>Profile</Text>
                   </Button>
                   <Button vertical onPress={() => this.props.navigation.navigate('HomeRoute')}>
                       <Icon name="bookmarks"/>
-                      <Text>cockpit</Text>
+                      <Text>Cockpit</Text>
                   </Button>
               </FooterTab>
           </Footer>

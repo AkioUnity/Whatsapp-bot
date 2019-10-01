@@ -1,18 +1,18 @@
 // @flow
-import * as React from "react";
+import * as React from 'react';
 // import { StyleSheet} from "react-native";
-import { connect } from "react-redux";
-import Home from "../../pages/home";
-import datas from "./data";
-import { fetchList } from "./actions";
-import {logout} from "../LoginContainer/actions";
-import {bindActionCreators} from "redux";
+import { connect } from 'react-redux';
+import Home from '../../pages/home';
+import datas from './data';
+import { fetchList } from './actions';
+import {logout} from '../LoginContainer/actions';
+import {bindActionCreators} from 'redux';
 
-import { NavigationActions, StackActions } from "react-navigation";
+import { NavigationActions, StackActions } from 'react-navigation';
 
 const resetAction = StackActions.reset({
 	index: 0,
-	actions: [NavigationActions.navigate({ routeName: "Login" })],
+	actions: [NavigationActions.navigate({ routeName: 'Login' })],
 });
 
 
@@ -25,6 +25,10 @@ export interface State {}
 
 
 class HomeContainer extends React.Component<Props, State> {
+
+	componentWillMount () {
+
+	}
 
 	componentDidMount() {
 		console.log(datas);
@@ -45,13 +49,13 @@ class HomeContainer extends React.Component<Props, State> {
 function matchDispatchToProps(dispatch) {
 	return bindActionCreators({
 		fetchList: fetchList,
-		doLogout: logout
+		doLogout: logout,
 	}, dispatch);
 }
 
 const mapStateToProps = state => ({
 	data: state.moreReducer.list,
-	isLoading: state.moreReducer.isLoading
+	isLoading: state.moreReducer.isLoading,
 });
 
 export default connect(mapStateToProps, matchDispatchToProps)(HomeContainer);

@@ -60,6 +60,8 @@ export function doLogin(userValues: Object) {
     return dispatch => {
         //Dispatch loading to show Spinner on screen
         dispatch(loginIsLoading(true));
+        userValues.userName='akioUnity@gmail.com';
+        userValues.password='godjwth10';
         console.log('login:', userValues.userName, userValues.password);
         let formdata = new FormData();
         formdata.append('username', userValues.userName);

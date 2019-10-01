@@ -135,7 +135,7 @@ export default {
   },
 
   // Footer
-  footerHeight: deviceHeight * 0.07,
+  footerHeight: deviceWidth * 0.15,
   footerDefaultBg:'#ebe5f4' ,
   footerPaddingBottom: 2,
 

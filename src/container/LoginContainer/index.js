@@ -137,6 +137,9 @@ class LoginForm extends React.Component<Props, State> {
                    onLogin={(userName, password) => this.login(userName, password)}
                    onSubmit={handleSubmit(this.onSubmit)}
                    isLoading={this.props.isLoading}
+                   userData={this.props.data}
+                   isLogged={this.props.isLogged}
+                   onLogout={() => { this.props.doLogout()}}
             />
         </Container>;
     }
@@ -147,6 +150,7 @@ function matchDispatchToProps(dispatch) {
     console.log('matchDispatchToProps');
     return bindActionCreators({
         doLogin: Actions.doLogin,
+        doLogout: Actions.logout,
         resetLoginControlVars: Actions.resetLoginControlVars
     }, dispatch);
 }
