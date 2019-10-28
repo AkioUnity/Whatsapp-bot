@@ -40,5 +40,11 @@ export default {
     reportText: {
         fontSize: w * 0.05, color: '#000000', fontWeight: '600', top: h * 0.010,
         alignSelf: 'center'
+    },
+    titleText:{
+        fontSize:w*0.07,
+    },
+    rightText:{
+        textAlign: 'right',
     }
 };
