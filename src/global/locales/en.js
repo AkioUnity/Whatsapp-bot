@@ -1,17 +1,20 @@
-export default {
-  login_title: "Example-Redux-Thunk-ScreenTransition",
-  login_subTitle: "Connecting you to the future",
-  login_signIn: "Sign In",
-  login_signInFacebook: "Continue with Facebook",
-  login_signInGooglePlus: "Continue with Google",
-  login_user: "E-mail",
-  login_password: "Password",
-  login_rememberMe: "Remember me",
-  login_register: "Create account",
-  login_validationMessage: "Enter Valid Username & password!",
-  login_error: "An error unexpected occur.",
+import {Text} from "native-base";
+import * as React from "react";
 
-  register_confirm: "Create",
-  register_name: "Name",
-  register_positionTarget: "Position target"
+export default {
+  Cockpit: 'Cockpit',
+  Messenger_systems: 'Messenger systems',
+  Call_system: 'Call system',
+  Requests: 'Requests',
+  Messenger: 'Messenger',
+  Callback_requests: 'Callback requests',
+  overall: 'overall',
+  date_requests: 'date requests',
+  Email: 'Email',
+  Password: 'Password',
+  Login_Success: 'Login Success',
+  Log_in: 'Log in',
+  Forgot_your_Password: 'Forgot your Password',
+  Privacy_Policy: 'Privacy Policy',
+  Profile: 'Profile',
 };

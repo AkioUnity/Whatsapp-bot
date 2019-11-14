@@ -1,0 +1,17 @@
+export default {
+  Cockpit: 'кокпит',
+  Messenger_systems: 'Системы сообщений',
+  Call_system: 'Система звонков',
+  Requests: 'Запросы',
+  Messenger: 'посыльный',
+  Callback_requests: 'Перезвонить запросы',
+  overall: 'в целом',
+  date_requests: 'посыльный',
+  Email: 'Электронное письмо',
+  Password: 'пароль',
+  Login_Success: 'Войти успешно',
+  Log_in: 'Авторизоваться',
+  Forgot_your_Password: 'Забыли свой пароль',
+  Privacy_Policy: 'политика конфиденциальности',
+  Profile: 'Профиль',
+};

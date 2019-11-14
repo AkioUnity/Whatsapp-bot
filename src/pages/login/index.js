@@ -5,6 +5,7 @@ import {Container, Content, Button, Text, View, Icon, Spinner} from 'native-base
 // import {LoginButton, AccessToken} from 'react-native-fbsdk';
 import styles from './styles';
 import AdFooter from '../base';
+import I18n from '../../global/i18n';
 
 export interface Props {
     loginForm: any;
@@ -42,7 +43,7 @@ class Login extends React.Component<Props, State> {
                                 </Button>
                             </View>
                             : <View>
-                                <Text style={styles.loginText}>Log in</Text>
+                                <Text style={styles.loginText}>{I18n.t('Log_in')}</Text>
                                 {this.props.loginForm}
                                 {
                                     isLoading ?
@@ -51,7 +52,7 @@ class Login extends React.Component<Props, State> {
                                       (
                                         <View>
                                             <Button full onPress={this.props.onSubmit} style={styles.loginRadius}>
-                                                <Text style={{fontSize: 14}}>Log-in</Text>
+                                                <Text style={{fontSize: 14}}>{I18n.t('Log_in')}</Text>
                                             </Button>
                                         </View>
                                       )
@@ -60,12 +61,12 @@ class Login extends React.Component<Props, State> {
                       }
                       <View>
                           <Button transparent onPress={() => this.props.navigation.navigate('SignUpRoute')}>
-                              <Text style={{fontSize: 14}}>Forgot your Password?</Text>
+                              <Text style={{fontSize: 14}}>{I18n.t('Forgot_your_Password')}?</Text>
                           </Button>
                       </View>
                       <View>
                           <Button transparent onPress={() => this.props.navigation.navigate('SignUpRoute')}>
-                              <Text style={{fontSize: 14}}>Privacy Policy</Text>
+                              <Text style={{fontSize: 14}}>{I18n.t('Privacy_Policy')}</Text>
                           </Button>
                       </View>
                   </View>

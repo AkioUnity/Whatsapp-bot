@@ -10,6 +10,8 @@ import Login from '../../pages/login';
 import * as Actions from './actions';
 import Toast from 'react-native-root-toast';
 import styles from '../../pages/login/styles';
+import I18n from '../../global/i18n';
+
 
 const required = value => (value ? undefined : 'Required');
 const email = value =>
@@ -70,7 +72,7 @@ class LoginForm extends React.Component<Props, State> {
                 ref={(c) => {
                     this.inputs[input.name] = c;
                 }}
-                placeholder={input.name === 'email' ? 'Email' : 'Password'}
+                placeholder={input.name === 'email' ? I18n.t('Email') : I18n.t('Password')}
                 secureTextEntry={input.name === 'password'}
                 underlineColorAndroid="transparent"
                 onSubmitEditing={input.name === 'password' ? handleSubmit(this.onSubmit) : () => {
@@ -90,7 +92,7 @@ class LoginForm extends React.Component<Props, State> {
 
     loginSuccess() {
         console.log('login Success');
-        Toast.show("Login Success", {
+        Toast.show(I18n.t('Login_Success'), {
             duration: Toast.durations.LONG,
             position: Toast.positions.BOTTOM,
             shadow: true,

@@ -17,6 +17,7 @@ import AdFooter from "../../pages/base";
 
 import React, {Component} from 'react';
 import styles from './styles';
+import I18n from '../../global/i18n';
 
 const resetAction = StackActions.reset({
     index: 0,
@@ -83,12 +84,12 @@ class HomeContainer extends React.Component<Props, State> {
             {/*<ImageBackground resizeMode="contain" source={require("../../../assets/ui/Logo1.png")}*/}
             {/*style={global.watermark}>*/}
             <Content padder>
-                <Text style={styles.reportText}>Cockpit</Text>
+                <Text style={styles.reportText}>{I18n.t('Cockpit')}</Text>
                 <Image square style={global.logoImage} source={require('../../../assets/whatsapp/lamoga.png')}/>
                 <Card>
                     <CardItem>
                         <Body>
-                        <Text>Messenger Systeme</Text>
+                        <Text>{I18n.t('Messenger_systems')}</Text>
                         </Body>
                         <Right>
                             <Switch
@@ -98,7 +99,7 @@ class HomeContainer extends React.Component<Props, State> {
                     </CardItem>
                     <CardItem>
                         <Body>
-                        <Text>Call System</Text>
+                        <Text>{I18n.t('Call_system')}</Text>
                         </Body>
                         <Right>
                             <Switch
@@ -107,19 +108,19 @@ class HomeContainer extends React.Component<Props, State> {
                         </Right>
                     </CardItem>
                     <CardItem footer bordered>
-                        <Text style={styles.titleText}>Anfragen:</Text>
+                        <Text style={styles.titleText}>{I18n.t('Requests')}:</Text>
                     </CardItem>
                     <CardItem>
                         <Body>
-                        <Text>Messenger:</Text>
+                        <Text>{I18n.t('Messenger')}:</Text>
                         </Body>
                         <Right>
                             <Text>{this.props.request_cn}</Text></Right>
                     </CardItem>
                     <CardItem footer>
                         <Body>
-                        <Text>Rückruf Anfragen</Text>
-                        <Text>insgesamt:</Text>
+                        <Text>{I18n.t('Callback_requests')}</Text>
+                        <Text>{I18n.t('overall')}:</Text>
                         <Text>in 1h: </Text>
                         <Text>in 2h: </Text>
                         </Body>
@@ -132,7 +133,7 @@ class HomeContainer extends React.Component<Props, State> {
                     </CardItem>
                     <CardItem footer>
                         <Body>
-                        <Text>Terminwunsche:</Text>
+                        <Text>{I18n.t('date_requests')}:</Text>
                         </Body>
                         <Right>
                             <Text>{this.props.request_cn}</Text></Right>
