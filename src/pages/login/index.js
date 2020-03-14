@@ -4,7 +4,7 @@ import global from '../../global/styles';
 import {Container, Content, Button, Text, View, Icon, Spinner} from 'native-base';
 // import {LoginButton, AccessToken} from 'react-native-fbsdk';
 import styles from './styles';
-import AdFooter from '../base';
+import AdFooter from '../footer';
 import I18n from '../../global/i18n';
 
 export interface Props {

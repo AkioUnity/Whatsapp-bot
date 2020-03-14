@@ -11,7 +11,7 @@ import {
   Footer,
   Spinner, FooterTab, Label, Input, Item, Form
 } from "native-base";
-import AdFooter from "../base";
+import AdFooter from "../footer";
 import styles from "./styles";
 import loginStyles from "../login/styles";
 

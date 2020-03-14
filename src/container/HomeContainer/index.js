@@ -13,7 +13,7 @@ import {
 
 import {Image, Switch, View} from "react-native";
 import global from "../../global/styles";
-import AdFooter from "../../pages/base";
+import AdFooter from "../../pages/footer";
 
 import React, {Component} from 'react';
 import styles from './styles';

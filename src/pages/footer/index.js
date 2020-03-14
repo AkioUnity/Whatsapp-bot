@@ -16,6 +16,10 @@ class AdFooter extends Component {
                       <Icon name="contact"/>
                       <Text>{I18n.t('Profile')}</Text>
                   </Button>
+                  <Button vertical onPress={() => this.props.navigation.navigate('MainScreen')}>
+                      <Icon name="ios-chatbubbles"/>
+                      <Text>{'Chat'}</Text>
+                  </Button>
                   <Button vertical onPress={() => this.props.navigation.navigate('HomeRoute')}>
                       <Icon name="bookmarks"/>
                       <Text>{I18n.t('Cockpit')}</Text>

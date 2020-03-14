@@ -7,6 +7,9 @@ import App from '../App';
 import getTheme from '../theme/components';
 import variables from '../theme/variables/platform';
 
+import { config } from '../resources/FirebaseSettings';
+import firebase from 'firebase';
+
 export interface Props {}
 export interface State {
   store: Object,
@@ -20,6 +23,12 @@ export default class Setup extends  React.Component<Props, State>{
       isLoading: false,
       store: configureStore(() => this.setState({ isLoading: false })),
     };
+  }
+
+  componentWillMount() {
+    if (!firebase.apps.length) {
+      firebase.initializeApp(config);
+    }
   }
 
   render() {

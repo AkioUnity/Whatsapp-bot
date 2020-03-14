@@ -3,7 +3,10 @@ import { Root } from 'native-base';
 import { createStackNavigator, createDrawerNavigator ,createAppContainer} from 'react-navigation';
 
 import Login from './container/LoginContainer';
-import BlankPage from './pages/blankPage';
+import MainScreen from './components/MainScreen';
+import AddContactScreen from './components/AddContactScreen';
+import Chat from './components/Chat';
+import SelectContact from './components/SelectContact';
 import Home from './container/HomeContainer';
 import SideBar from './pages/sidebar';
 
@@ -26,7 +29,10 @@ const AppNavigator = createStackNavigator(
   {
     Login: { screen: Login },
     HomeRoute: { screen: Home},
-    // SignUpRoute: { screen: SignUpPage },
+    MainScreen: { screen: MainScreen},
+    Chat: { screen: Chat },
+      SelectContact: { screen: SelectContact },
+      AddContactScreen: { screen: AddContactScreen },
   },
   {
     initialRouteName: 'Login',
