@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import base64 from 'base-64';
 import _ from 'lodash';
-import { Actions } from 'react-native-router-flux';
 import {View, Text, Image, TouchableHighlight, FlatList} from 'react-native';
 
 import { connect } from 'react-redux';
@@ -18,7 +17,7 @@ class CallScane extends Component {
     this.createDataSource(this.props.contacts);
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentDidUpdate(nextProps) {
     this.createDataSource(nextProps.contacts);
   }
 

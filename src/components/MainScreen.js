@@ -30,7 +30,7 @@ class MainScreen extends Component {
                   <Right/>
               </Header>
               <Content >
-                  <Tabs>
+                  <Tabs >
                       <Tab heading="Chats">
                           <ChatScene navigation={this.props.navigation}/>
                       </Tab>

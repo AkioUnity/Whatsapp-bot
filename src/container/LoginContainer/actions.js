@@ -37,7 +37,8 @@ export function loginFailed(lastError: Object) {
 }
 
 export function resetLoginControlVars() {
-    firebase.auth().signInWithEmailAndPassword("filipenatanael1@live.com", 'chat10');
+    firebase.auth().signInWithEmailAndPassword("juliana@example.com", 'chat10');
+    // firebase.auth().signInWithEmailAndPassword("filipenatanael1@live.com", 'chat10');
     return dispatch => {
         dispatch({
             type: LOGIN_RESET_CONTROL_VARS,

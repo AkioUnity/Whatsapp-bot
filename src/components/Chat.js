@@ -21,11 +21,13 @@ class Chat extends Component {
     }
 
     createDataSource(conversation) {
+        console.log('chat message');
+        console.log(conversation);
         this.dataSource = conversation;
         // this.dataSource is a variable on scope of this class
     }
 
-    componentWillReceiveProps(nextProps) {
+    componentDidUpdate(nextProps) {
         if (this.props.contactEmail != nextProps.contactEmail) {
             this.props.fetchMessages(nextProps.contactEmail);
         }
@@ -66,7 +68,7 @@ class Chat extends Component {
                       </Button>
                   </Left>
                   <Body>
-                  <Title>Whatsapp</Title>
+                  <Title>Costumer 4</Title>
                   </Body>
                   <Right/>
               </Header>

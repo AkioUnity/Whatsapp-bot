@@ -1,4 +1,4 @@
-import React,{Component} from 'react';
+import React from 'react';
 import { StyleProvider } from 'native-base';
 import { Provider } from 'react-redux';
 

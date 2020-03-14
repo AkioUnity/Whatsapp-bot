@@ -16,7 +16,7 @@ class SelectContact extends Component {
     this.createDataSource(this.props.contacts);
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentDidUpdate(nextProps) {
     this.createDataSource(nextProps.contacts);
   }
 
