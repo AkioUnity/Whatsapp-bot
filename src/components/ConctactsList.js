@@ -24,7 +24,7 @@ class ContactsList extends Component {
 
   createDataSource(contacts) {
     this.dataSource = contacts;
-    // console.log(contacts);
+    console.log(contacts);
     // (this.dataSource) CallScane.prototype.dataSource (example)
   }
 
@@ -50,7 +50,9 @@ class ContactsList extends Component {
       <FlatList
         data={this.dataSource}
         renderItem={({ item }) => this.renderRow(item)}
-        keyExtractor={item => item.id}
+        keyExtractor={(item, index) => {
+          return index.toString();
+        }}
     />
   );
 }

@@ -144,7 +144,9 @@ export const fetchAllChats = currentUserEmail => {
 
 /* Seatch conversation and return it to ListConversation reducer */
 export const fetchMessages = contactEmail => {
+  console.log("Fetch Message");
   const { currentUser } = firebase.auth();
+  console.log(currentUser);
   let user_email_encode = base64.encode(currentUser.email);
   let contact_email_encode = base64.encode(contactEmail);
 

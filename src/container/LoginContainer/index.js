@@ -31,16 +31,13 @@ class LoginForm extends React.Component<Props, State> {
     toast: any;
 
     constructor(props) {
-        console.log('LoginContainer constructor');
         super(props);
         this.inputs = {};
         this.renderInput = this.renderInput.bind(this);
         this.state = {
             isLoading: false,
         };
-        console.log('LoginContainer constructor1');
     }
-
 
     componentDidUpdate() {
         //logout

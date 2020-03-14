@@ -25,7 +25,7 @@ export default class Setup extends  React.Component<Props, State>{
     };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     if (!firebase.apps.length) {
       firebase.initializeApp(config);
     }

@@ -2,12 +2,16 @@ import React, { Component } from 'react';
 import base64 from 'base-64';
 import _ from 'lodash';
 import { Actions } from 'react-native-router-flux';
-import { View, Text, ListView, Image, TouchableHighlight } from 'react-native';
+import {View, Text, Image, TouchableHighlight, FlatList} from 'react-native';
 
 import { connect } from 'react-redux';
 import { fetchContacts } from  '../actions/AppActions';
 
 class CallScane extends Component {
+
+  constructor(props) {
+    super(props);
+  }
 
   componentWillMount() {
     this.props.fetchContacts(base64.encode(this.props.email_logged_in));
@@ -19,15 +23,17 @@ class CallScane extends Component {
   }
 
   createDataSource(contacts) {
-    const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 })
-    this.dataSource = ds.cloneWithRows(contacts)
-    // (this.dataSource) CallScane.prototype.dataSource (example)
+    this.dataSource = contacts;
   }
 
   renderRow(contact) {
     return (
       <TouchableHighlight
-        onPress={ () => Actions.chat({ title: contact.name, contactName: contact.name, contactEmail: contact.email }) }
+        onPress={ () => this.props.navigation.navigate('Chat',{
+          title: contact.name,
+          contactName: contact.name,
+          contactEmail: contact.email
+        }) }
       >
       <View style={{ flex: 1,  flexDirection: 'row', padding: 15, borderBottomWidth: 1, borderColor: "#b7b7b7" }}>
         <Image source={{uri: contact.profileImage }} style={{ width: 50, height: 50, borderRadius: 50 }} />
@@ -42,11 +48,11 @@ class CallScane extends Component {
 
   render() {
     return (
-      <ListView
-        enableEmptySections
-        dataSource={this.dataSource}
-        renderRow={data => this.renderRow(data)}
-    />
+      <FlatList
+        data={this.dataSource}
+        renderItem={({ item }) => this.renderRow(item)}
+        keyExtractor={item => item.id}
+      />
   );
 }
 }

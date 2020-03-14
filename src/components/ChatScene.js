@@ -1,9 +1,7 @@
 import React from 'react';
 import { View, StyleSheet, TouchableOpacity, Image } from 'react-native';
-import { Actions } from 'react-native-router-flux';
 
-import ChatsList from './ChatsList'
-import ConctactsList from "./StatusScane";
+import ChatsList from './ChatsList';
 
 export default props => (
   <View style={styles.container}>

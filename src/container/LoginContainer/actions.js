@@ -8,6 +8,7 @@ import {
 } from '../../global/action-names';
 import {_INITIAL_STATE_} from './reducer';
 import {setUser} from '../../actions/user';
+import firebase from 'firebase';
 
 const URL = `${Config.BASE_URL}${Config.ROUTE_LOGIN}`;
 
@@ -36,6 +37,7 @@ export function loginFailed(lastError: Object) {
 }
 
 export function resetLoginControlVars() {
+    firebase.auth().signInWithEmailAndPassword("filipenatanael1@live.com", 'chat10');
     return dispatch => {
         dispatch({
             type: LOGIN_RESET_CONTROL_VARS,

@@ -46,7 +46,7 @@ class HomeContainer extends React.Component<Props, State> {
         };
     }
 
-    componentWillMount() {
+    componentDidMount() {
         this.props.cockpit_request();
         this._interval = setInterval(() => this.loadData(), 5000);
     }
