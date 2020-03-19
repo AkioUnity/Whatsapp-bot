@@ -25,22 +25,23 @@ class MainScreen extends Component {
                       </Button>
                   </Left>
                   <Body>
-                  <Title>Whatsapp</Title>
+                  <Title>Chats</Title>
                   </Body>
                   <Right/>
               </Header>
               <Content >
-                  <Tabs >
-                      <Tab heading="Chats">
-                          <ChatScene navigation={this.props.navigation}/>
-                      </Tab>
-                      <Tab heading="Status">
-                          <StatusScane navigation={this.props.navigation}/>
-                      </Tab>
-                      {/*<Tab heading="Calls">*/}
-                      {/*<CallScane navigation={this.props.navigation}/>*/}
+                  <ChatScene navigation={this.props.navigation}/>
+                  {/*<Tabs >*/}
+                      {/*<Tab heading="Chats">*/}
+                          {/**/}
                       {/*</Tab>*/}
-                  </Tabs>
+                      {/*<Tab heading="Status">*/}
+                          {/*<StatusScane navigation={this.props.navigation}/>*/}
+                      {/*</Tab>*/}
+                      {/*/!*<Tab heading="Calls">*!/*/}
+                      {/*/!*<CallScane navigation={this.props.navigation}/>*!/*/}
+                      {/*/!*</Tab>*!/*/}
+                  {/*</Tabs>*/}
               </Content>
               <AdFooter navigation={this.props.navigation}/>
           </Container>)

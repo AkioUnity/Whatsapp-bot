@@ -1,4 +1,7 @@
 import Config from "../global/config";
+import firebase from "./AppActions";
+import _ from "lodash";
+import {FETCH_ALL_CHATS} from "../global/action-names";
 
 export const REPORT = 'REPORT';
 export const USER_REPORT = 'USER_REPORT';
@@ -53,7 +56,7 @@ export function cockpit_request(report: Object) {
       });
     })
       .catch(error => {
-        dispatch(fetchIsLoading(false));
+        // dispatch(fetchIsLoading(false));
       });
   };
 }
@@ -80,7 +83,26 @@ export function reportUser(user: Object) {
       });
     })
       .catch(error => {
-        dispatch(fetchIsLoading(false));
+        // dispatch(fetchIsLoading(false));
       });
   };
 }
+
+export const fetchAllChats = user_id=> {
+  return dispatch => {
+    fetch(Config.Api_URL+'/users/chats/'+user_id, {
+      method: 'get' })
+    .then(response => {
+      response.json().then(data => {
+        dispatch({
+          type: FETCH_ALL_CHATS,
+          chatList:data,
+        });
+      });
+    })
+      .catch(error => {
+        dispatch(fetchIsLoading(false));
+      });
+  }
+}
+

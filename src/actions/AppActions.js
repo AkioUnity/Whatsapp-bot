@@ -10,7 +10,6 @@ import {
   CHANGE_MESSAGE,
   SEND_MESSAGE_SUCCESS,
   LIST_CONVERSATION_USER,
-  FETCH_ALL_CHATS,
 } from '../resources/types';
 
 /* added to redux */
@@ -98,45 +97,6 @@ export const sendMessage = (message, contactName, contactEmail) => {
           email: userEmail,
           lastMessage: message
         })
-      })
-    })
-  }
-}
-
-export const fetchAllChats = currentUserEmail => {
-  return dispatch => {
-    firebase.database().ref(`/user_conversations/${currentUserEmail}`)
-    .on('value', user_conversations => {
-      firebase.database().ref(`/users_of_contacts/${currentUserEmail}`)
-      .on("value", users_of_contacts => {
-
-        const contacts = _.map(users_of_contacts.val(), (value, uid) => {
-          return { ...value, uid }
-        });
-
-        const conversations = _.map(user_conversations.val(), (value, uid) => {
-          return { ...value, uid }
-        });
-
-        let array_merged = []
-        let count = 0;
-        let i=0;
-        let y=0;
-
-        for(i=0; i < conversations.length; i++) {
-          for(y=0; y < contacts.length; y++) {
-            if (conversations[i].email == contacts[y].email) {
-              array_merged[count] = { ...conversations[i], ...contacts[y] }
-              count++
-            }
-          }
-        }
-
-        dispatch({
-          type: FETCH_ALL_CHATS,
-          payload: array_merged
-        });
-
       })
     })
   }

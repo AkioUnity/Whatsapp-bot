@@ -7,30 +7,22 @@ import {Body, Button, Container, Content, Header, Icon, Left, Right, Title} from
 import AdFooter from "../pages/footer";
 
 class Chat extends Component {
-
     componentWillMount() {
-        console.log(this.props);
-        this.props.fetchMessages(this.props.contactEmail);
+        this.props.fetchMessages(this.props.user_id);
         this.createDataSource(this.props.conversation);
     }
-
     /* Component Context */
     _sendMessage() {
-        const {message, contactName, contactEmail} = this.props;
-        this.props.sendMessage(message, contactName, contactEmail)
+        const {message, contactName, user_id} = this.props;
+        this.props.sendMessage(message, contactName, user_id)
     }
 
     createDataSource(conversation) {
-        console.log('chat message');
-        console.log(conversation);
         this.dataSource = conversation;
         // this.dataSource is a variable on scope of this class
     }
 
     componentDidUpdate(nextProps) {
-        if (this.props.contactEmail != nextProps.contactEmail) {
-            this.props.fetchMessages(nextProps.contactEmail);
-        }
         this.createDataSource(nextProps.conversation);
     }
 

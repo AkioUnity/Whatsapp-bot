@@ -6,7 +6,7 @@ import {
     LOGIN_RESET_CONTROL_VARS,
     LOGIN_LOGOUT,
 } from '../../global/action-names';
-import {_INITIAL_STATE_} from './reducer';
+import {_INITIAL_STATE_} from '../../reducers/user';
 import {setUser} from '../../actions/user';
 import firebase from 'firebase';
 

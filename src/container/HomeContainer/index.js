@@ -1,7 +1,5 @@
 // @flow
 import {connect} from 'react-redux';
-import {fetchList} from './actions';
-
 import * as Actions from "../../actions/user";
 import {bindActionCreators} from 'redux';
 
@@ -52,10 +50,12 @@ class HomeContainer extends React.Component<Props, State> {
     }
 
     async loadData() {
+        console.log("loadData HomeContainer");
         this.props.cockpit_request();
     }
 
     componentWillUnmount() {
+        console.log("componentWillUnmount");
         clearInterval(this._interval);
     }
 
@@ -148,14 +148,12 @@ class HomeContainer extends React.Component<Props, State> {
 
 function matchDispatchToProps(dispatch) {
     return bindActionCreators({
-        fetchList: fetchList,
         cockpit_request: Actions.cockpit_request,
     }, dispatch);
 }
 
 const mapStateToProps = state => ({
     request_cn: state.user.request_cn,
-    isLoading: state.moreReducer.isLoading,
 });
 
 export default connect(mapStateToProps, matchDispatchToProps)(HomeContainer);

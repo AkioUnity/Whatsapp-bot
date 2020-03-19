@@ -1,12 +1,17 @@
 import React, {Component} from 'react';
 import base64 from 'base-64';
-import {View, Image, TouchableHighlight, FlatList} from 'react-native';
+import {View, Image, TouchableHighlight, FlatList, YellowBox} from 'react-native';
 import {Text} from 'native-base';
 
 import {connect} from 'react-redux';
 import {
     fetchAllChats
-} from '../actions/AppActions';
+} from '../actions/user';
+
+
+YellowBox.ignoreWarnings([
+    'VirtualizedLists should never be nested', // TODO: Remove when fixed
+])
 
 class ChatsList extends Component {
     constructor(props) {
@@ -14,7 +19,7 @@ class ChatsList extends Component {
     }
 
     componentDidMount() {
-        this.props.fetchAllChats(base64.encode(this.props.email_logged_in));
+        this.props.fetchAllChats(this.props.user_id);
         this.createDataSource(this.props.chatsList);
     }
 
@@ -23,13 +28,9 @@ class ChatsList extends Component {
     }
 
     createDataSource(chatsList) {
-        console.log('chatsList');
-        chatsList=[{email: "juliana@example.com", lastMessage: "I'm leaving home now", name: "Juliana Freitas", uid: "-LIYrkTkJ28REbAhD0Xz", profileImage: "https://bootdey.com/img/Content/avatar/avatar5.png"},
-            {email: "heino@lomago.com", lastMessage: "Hello Lomago", name: "Cai Xian", uid: "-LIYrkTkJ28REbAhD0Xz", profileImage: "https://bootdey.com/img/Content/avatar/avatar5.png"}
-            ];
         console.log(chatsList);
-        this.dataSource =chatsList;
-          // chatsList;
+        this.dataSource = chatsList;
+        // chatsList;
     }
 
     renderRow(chatContent) {
@@ -38,7 +39,7 @@ class ChatsList extends Component {
             onPress={() => this.props.navigation.navigate('Chat', {
                 title: chatContent.name,
                 contactName: chatContent.name,
-                contactEmail: chatContent.email
+                user_id: chatContent.user_id,
             })}
           >
               <View style={{flex: 1, flexDirection: 'row', padding: 15, borderBottomWidth: 1, borderColor: "#b7b7b7"}}>
@@ -56,7 +57,7 @@ class ChatsList extends Component {
         return (
           <FlatList
             data={this.dataSource}
-            renderItem={({item}) =>this.renderRow(item)}
+            renderItem={({item}) => this.renderRow(item)}
             keyExtractor={(item, index) => {
                 return index.toString();
             }}
@@ -68,7 +69,8 @@ class ChatsList extends Component {
 mapStateToProps = state => {
     return {
         email_logged_in: state.AppReducer.email_logged_in,
-        chatsList: state.ListChatsReducer
+        user_id: state.user.userData.id,
+        chatsList: state.chatsReducer.chatList
     }
 }
 

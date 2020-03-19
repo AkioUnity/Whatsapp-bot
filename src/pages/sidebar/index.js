@@ -102,8 +102,6 @@ function matchDispatchToProps(dispatch) {
 }
 
 const mapStateToProps = state => ({
-  data: state.moreReducer.list,
-  isLoading: state.moreReducer.isLoading,
 });
 
 export default connect(mapStateToProps, matchDispatchToProps)(SideBar);

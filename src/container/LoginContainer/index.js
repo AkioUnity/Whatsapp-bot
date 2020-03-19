@@ -146,7 +146,6 @@ class LoginForm extends React.Component<Props, State> {
 
 //This function simply converts our Actions into usable props.
 function matchDispatchToProps(dispatch) {
-    console.log('matchDispatchToProps');
     return bindActionCreators({
         doLogin: Actions.doLogin,
         doLogout: Actions.logout,
@@ -156,14 +155,13 @@ function matchDispatchToProps(dispatch) {
 
 //This function, simply takes your reducer data, that is required, and converts it into a usable Prop.
 const mapStateToProps = (state) => {
-    console.log(state);
     return {
-        data: state.loginReducer.userData,
-        isLoading: state.loginReducer.isLoading,
-        isLogged: state.loginReducer.isLogged,
-        lastError: state.loginReducer.lastError,
-        hasError: state.loginReducer.hasError,
-        resetNavigation: state.loginReducer.resetNavigation,
+        data: state.user.userData,
+        isLoading: state.user.isLoading,
+        isLogged: state.user.isLogged,
+        lastError: state.user.lastError,
+        hasError: state.user.hasError,
+        resetNavigation: state.user.resetNavigation,
     };
 };
 
