@@ -99,16 +99,13 @@ class Chat extends Component {
 }
 
 mapStateToProps = state => {
-
     const conversation = _.map(state.ListConversation, (val, uid) => {
         return {...val, uid};
-    })
-
-    console.log(conversation);
-
+    });
     return ({
         conversation,
-        message: state.AppReducer.message
+        message: state.AppReducer.message,
+        id: state.user.userData.id,
     })
 }
 

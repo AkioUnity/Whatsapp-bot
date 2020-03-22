@@ -36,7 +36,6 @@ class HomeContainer extends React.Component<Props, State> {
 
     constructor(props) {
         super(props);
-
         this.state = {
             switchValue: false,
             call_system: false,

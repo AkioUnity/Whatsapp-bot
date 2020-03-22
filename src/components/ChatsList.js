@@ -20,17 +20,16 @@ class ChatsList extends Component {
 
     componentDidMount() {
         this.props.fetchAllChats(this.props.user_id);
-        this.createDataSource(this.props.chatsList);
+        this._interval = setInterval(() => this.loadData(), 2000);
     }
 
-    componentDidUpdate(nextProps) {
-        this.createDataSource(nextProps.chatsList);
+    async loadData() {
+        this.props.fetchAllChats(this.props.user_id);
     }
 
-    createDataSource(chatsList) {
-        console.log(chatsList);
-        this.dataSource = chatsList;
-        // chatsList;
+    componentWillUnmount() {
+        console.log("ChatsList componentWillUnmount");
+        clearInterval(this._interval);
     }
 
     renderRow(chatContent) {
@@ -56,7 +55,7 @@ class ChatsList extends Component {
     render() {
         return (
           <FlatList
-            data={this.dataSource}
+            data={this.props.chatsList}
             renderItem={({item}) => this.renderRow(item)}
             keyExtractor={(item, index) => {
                 return index.toString();

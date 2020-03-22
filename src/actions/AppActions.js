@@ -11,6 +11,9 @@ import {
   SEND_MESSAGE_SUCCESS,
   LIST_CONVERSATION_USER,
 } from '../resources/types';
+import Config from "../global/config";
+import {FETCH_ALL_CHATS} from "../global/action-names";
+import {fetchIsLoading} from "./user";
 
 /* added to redux */
 export const addContact = (email) => {
@@ -102,14 +105,25 @@ export const sendMessage = (message, contactName, contactEmail) => {
   }
 }
 
-/* Seatch conversation and return it to ListConversation reducer */
-export const fetchMessages = contactEmail => {
-  console.log("Fetch Message");
-  const { currentUser } = firebase.auth();
-  console.log('currentUser');
-  console.log(currentUser);
-  let user_email_encode = base64.encode(currentUser.email);
-  let contact_email_encode = base64.encode(contactEmail);
+export const fetchMessages = user_id => {
+  return dispatch => {
+    let url=Config.Api_URL+'users/messages/'+user_id;
+    console.log(url);
+    fetch(url)
+      .then(response => {
+        response.json().then(data => {
+          console.log(data);
+          dispatch({
+            type: FETCH_ALL_CHATS,
+            chatList:data,
+          });
+        });
+      })
+      .catch(error => {
+        console.error(error);
+        dispatch(fetchIsLoading(false));
+      });
+  }
 
   return dispatch => {
     firebase.database().ref(`/messages/${user_email_encode}/${contact_email_encode}`)

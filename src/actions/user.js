@@ -62,7 +62,6 @@ export function cockpit_request(report: Object) {
 }
 
 export function reportUser(user: Object) {
-  console.log(user);
   return dispatch => {
     fetch(Config.BASE_URL+'/users/report_user', {
       method: "post",
@@ -90,10 +89,13 @@ export function reportUser(user: Object) {
 
 export const fetchAllChats = user_id=> {
   return dispatch => {
-    fetch(Config.Api_URL+'/users/chats/'+user_id, {
-      method: 'get' })
+    //user_id=104;
+    let url=Config.Api_URL+'users/chats/'+user_id;
+    console.log(url);
+    fetch(url)
     .then(response => {
       response.json().then(data => {
+        console.log(data);
         dispatch({
           type: FETCH_ALL_CHATS,
           chatList:data,
@@ -101,6 +103,7 @@ export const fetchAllChats = user_id=> {
       });
     })
       .catch(error => {
+        console.error(error);
         dispatch(fetchIsLoading(false));
       });
   }
