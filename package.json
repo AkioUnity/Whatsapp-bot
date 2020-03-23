@@ -9,7 +9,8 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "postinstall": "node ./android-release-gradle-fix.js"
   },
   "dependencies": {
     "@react-native-community/async-storage": "^1.8.1",
