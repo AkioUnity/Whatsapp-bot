@@ -19,6 +19,7 @@ class ChatsList extends Component {
     }
 
     componentDidMount() {
+        console.log('chatlist didMound');
         this.props.fetchAllChats(this.props.user_id);
         this._interval = setInterval(() => this.loadData(), 2000);
     }
@@ -28,19 +29,20 @@ class ChatsList extends Component {
     }
 
     componentWillUnmount() {
-        console.log("ChatsList componentWillUnmount");
+        console.log('ChatsList componentWillUnmount');
         clearInterval(this._interval);
     }
 
     renderRow(chatContent) {
         return (
           <TouchableHighlight
-            onPress={() => this.props.navigation.navigate('Chat', {
-                title: chatContent.name,
-                contactName: chatContent.name,
-                user_id: chatContent.user_id,
-            })}
-          >
+            onPress={() =>{
+                this.props.navigation.navigate('Chat', {
+                    title: chatContent.name,
+                    name: chatContent.name,
+                    user_id: chatContent.user_id,
+                }); }
+              }>
               <View style={{flex: 1, flexDirection: 'row', padding: 15, borderBottomWidth: 1, borderColor: "#b7b7b7"}}>
                   <Image source={{uri: chatContent.profileImage}} style={{width: 50, height: 50, borderRadius: 50}}/>
                   <View style={{marginLeft: 15}}>
@@ -69,7 +71,7 @@ mapStateToProps = state => {
     return {
         email_logged_in: state.AppReducer.email_logged_in,
         user_id: state.user.userData.id,
-        chatsList: state.chatsReducer.chatList
+        chatsList: state.chatsReducer.chatList,
     }
 }
 

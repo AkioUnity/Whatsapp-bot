@@ -44,17 +44,17 @@ class HomeContainer extends React.Component<Props, State> {
     }
 
     componentDidMount() {
+        console.log('home DidMount');
         this.props.cockpit_request();
         this._interval = setInterval(() => this.loadData(), 5000);
     }
 
     async loadData() {
-        console.log("loadData HomeContainer");
         this.props.cockpit_request();
     }
 
     componentWillUnmount() {
-        console.log("componentWillUnmount");
+        console.log('home componentWillUnmount');
         clearInterval(this._interval);
     }
 

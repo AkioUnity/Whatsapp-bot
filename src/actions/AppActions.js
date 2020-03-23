@@ -12,7 +12,7 @@ import {
   LIST_CONVERSATION_USER,
 } from '../resources/types';
 import Config from "../global/config";
-import {FETCH_ALL_CHATS} from "../global/action-names";
+import {Load_Messages} from "../global/action-names";
 import {fetchIsLoading} from "./user";
 
 /* added to redux */
@@ -105,17 +105,16 @@ export const sendMessage = (message, contactName, contactEmail) => {
   }
 }
 
-export const fetchMessages = user_id => {
+export const fetchMessages = (user1,user2) => {
   return dispatch => {
-    let url=Config.Api_URL+'users/messages/'+user_id;
+    let url=Config.Api_URL+'phone/messages/'+user1+'/'+user2;
     console.log(url);
     fetch(url)
       .then(response => {
         response.json().then(data => {
-          console.log(data);
           dispatch({
-            type: FETCH_ALL_CHATS,
-            chatList:data,
+            type: Load_Messages,
+            messages:data,
           });
         });
       })

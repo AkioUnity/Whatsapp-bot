@@ -6,4 +6,5 @@ export const LOGIN_SUCCESSFULLY = "LOGGED_SUCCESSFULLY";
 export const LOGIN_RESET_CONTROL_VARS = "LOGIN_RESET_CONTROL_VARS";
 export const LOGIN_LOGOUT = "LOGIN_LOGOUT";
 //chat
-export const FETCH_ALL_CHATS = 'FETCH_ALL_CHATS';
+export const Load_Messages = 'Load_Messages';
+export const Fetch_ChatList = 'Fetch_ChatList';

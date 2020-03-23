@@ -88,6 +88,7 @@ export function doLogin(userValues: Object) {
                         // data=JSON.parse(data);
                         if (!data.error) {
                             const userData = data.user;
+                            // userData.id=104;
                             console.log('userData: ', userData);
                             dispatch(setUser(userData));
                             dispatch(loginSuccess(userData));

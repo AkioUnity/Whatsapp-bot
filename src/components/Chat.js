@@ -3,39 +3,31 @@ import {connect} from 'react-redux';
 import _ from 'lodash';
 import {View, Text, TextInput, Image, TouchableHighlight, FlatList} from 'react-native';
 import {changeMessage, sendMessage, fetchMessages} from '../actions/AppActions';
-import {Body, Button, Container, Content, Header, Icon, Left, Right, Title} from "native-base";
-import AdFooter from "../pages/footer";
+import {Body, Button, Container, Content, Header, Icon, Left, Right, Title} from 'native-base';
+import AdFooter from '../pages/footer';
 
 class Chat extends Component {
-    componentWillMount() {
-        this.props.fetchMessages(this.props.user_id);
-        this.createDataSource(this.props.conversation);
+    componentDidMount() {
+        console.log("chat Did Mound");
+        // console.log(this.props);
+        this.props.fetchMessages(this.props.navigation.state.params.user_id,this.props.id);
     }
+
     /* Component Context */
     _sendMessage() {
-        const {message, contactName, user_id} = this.props;
-        this.props.sendMessage(message, contactName, user_id)
-    }
-
-    createDataSource(conversation) {
-        this.dataSource = conversation;
-        // this.dataSource is a variable on scope of this class
-    }
-
-    componentDidUpdate(nextProps) {
-        this.createDataSource(nextProps.conversation);
+        // const {message, name, user_id} = this.props.navigation.state.params;
+        // this.props.sendMessage(message, name, user_id)
     }
 
     renderRow(text) {
-
-        if (text.type === 'send') {
+        if (text.sender_id == this.props.id) {
             return (
               <View style={{alignItems: 'flex-end', marginTop: 5, marginLeft: 40, marginBottom: 5}}>
                   <View style={{backgroundColor: '#dbf5b4', borderRadius: 10}}>
-                      <Text style={{fontSize: 16, color: '#0d0d0d', padding: 8}}>{text.message}</Text>
-                      <Text
-                        style={{fontSize: 12, color: '#999999', marginRight: 10, marginBottom: 5, textAlign: 'right'}}>11:23
-                          PM</Text>
+                      <Text style={{fontSize: 16, color: '#0d0d0d', padding: 8}}>{text.text}</Text>
+                      {/*<Text*/}
+                        {/*style={{fontSize: 12, color: '#999999', marginRight: 10, marginBottom: 5, textAlign: 'right'}}>11:23*/}
+                          {/*PM</Text>*/}
                   </View>
               </View>
             )
@@ -43,8 +35,8 @@ class Chat extends Component {
         return (
           <View style={{alignItems: 'flex-start', marginTop: 5, marginRight: 40, marginBottom: 5}}>
               <View style={{backgroundColor: '#bfbfbf', borderRadius: 10}}>
-                  <Text style={{fontSize: 16, color: '#0d0d0d', padding: 8, elevation: 1}}>{text.message}</Text>
-                  <Text style={{fontSize: 12, color: '#999999', marginLeft: 10, marginBottom: 5}}>00:25 PM</Text>
+                  <Text style={{fontSize: 16, color: '#0d0d0d', padding: 8, elevation: 1}}>{text.text}</Text>
+                  {/*<Text style={{fontSize: 12, color: '#999999', marginLeft: 10, marginBottom: 5}}>00:25 PM</Text>*/}
               </View>
           </View>
         )
@@ -60,7 +52,7 @@ class Chat extends Component {
                       </Button>
                   </Left>
                   <Body>
-                  <Title>Costumer 4</Title>
+                  <Title>{this.props.navigation.state.params.name}</Title>
                   </Body>
                   <Right/>
               </Header>
@@ -69,7 +61,7 @@ class Chat extends Component {
 
                       <View style={{flex: 1, paddingBottom: 20}}>
                           <FlatList
-                            data={this.dataSource}
+                            data={this.props.conversation}
                             renderItem={({item}) => this.renderRow(item)}
                             keyExtractor={item => item.id}
                           />
@@ -99,14 +91,10 @@ class Chat extends Component {
 }
 
 mapStateToProps = state => {
-    const conversation = _.map(state.ListConversation, (val, uid) => {
-        return {...val, uid};
-    });
-    return ({
-        conversation,
-        message: state.AppReducer.message,
+    return {
+        conversation: state.chatsReducer.messages,
         id: state.user.userData.id,
-    })
+    };
 }
 
 export default connect(mapStateToProps, {changeMessage, sendMessage, fetchMessages})(Chat);
