@@ -21,7 +21,7 @@ class ChatsList extends Component {
     componentDidMount() {
         console.log('chatlist didMound');
         this.props.fetchAllChats(this.props.user_id);
-        this._interval = setInterval(() => this.loadData(), 2000);
+        // this._interval = setInterval(() => this.loadData(), 2000);
     }
 
     async loadData() {
@@ -67,12 +67,12 @@ class ChatsList extends Component {
     }
 }
 
-mapStateToProps = state => {
+function mapStateToProps(state) {
     return {
         email_logged_in: state.AppReducer.email_logged_in,
         user_id: state.user.userData.id,
         chatsList: state.chatsReducer.chatList,
     }
-}
+};
 
 export default connect(mapStateToProps, {fetchAllChats})(ChatsList);

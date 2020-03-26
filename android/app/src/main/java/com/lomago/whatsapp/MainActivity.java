@@ -1,4 +1,4 @@
-package com.whatsapp;
+package com.lomago.whatsapp;
 
 import com.facebook.react.ReactActivity;
 

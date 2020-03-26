@@ -5,18 +5,50 @@ import {View, Text, TextInput, Image, TouchableHighlight, FlatList} from 'react-
 import {changeMessage, sendMessage, fetchMessages} from '../actions/AppActions';
 import {Body, Button, Container, Content, Header, Icon, Left, Right, Title} from 'native-base';
 import AdFooter from '../pages/footer';
+import Config from "../global/config";
 
 class Chat extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            message: '',
+            messages:''
+        };
+    }
+
     componentDidMount() {
         console.log("chat Did Mound");
         // console.log(this.props);
         this.props.fetchMessages(this.props.navigation.state.params.user_id,this.props.id);
+        this.setState({messages:this.props.messages});
     }
 
-    /* Component Context */
     _sendMessage() {
-        // const {message, name, user_id} = this.props.navigation.state.params;
-        // this.props.sendMessage(message, name, user_id)
+        // this.props.sendMessage(this.state.message, this.props.id,this.props.navigation.state.params.user_id);
+
+        fetch(Config.Api_URL + 'users/sendMessage', {
+            method: "post",
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                text: this.state.message,
+                sender_id: this.props.id,
+                receiver_id: this.props.navigation.state.params.user_id
+            })
+        }).then(response => {
+            response.json().then(data => {
+                console.log(data);
+            });
+        })
+          .catch(error => {
+              console.log(error);
+          });
+
+        let cur_messages=this.state.messages;
+        cur_messages.push({text:this.state.message,time:new Date(),sender_id:this.props.id});
+        this.setState({message:'',messages:cur_messages});
     }
 
     renderRow(text) {
@@ -61,22 +93,22 @@ class Chat extends Component {
 
                       <View style={{flex: 1, paddingBottom: 20}}>
                           <FlatList
-                            data={this.props.conversation}
+                            data={this.state.messages}
                             renderItem={({item}) => this.renderRow(item)}
-                            keyExtractor={item => item.id}
+                            keyExtractor={(item, index) => String(index)}
                           />
                       </View>
 
                       <View style={{flexDirection: 'row', height: 60}}>
                           <TextInput
-                            value={this.props.message}
-                            onChangeText={text => this.props.changeMessage(text)}
+                            value={this.state.message}
+                            onChangeText={text => this.setState({message:text})}
                             underlineColorAndroid='transparent'
                             style={{flex: 4, backgroundColor: '#fff', fontSize: 15, borderRadius: 30}}
                           />
 
                           <TouchableHighlight
-                            onPress={this._sendMessage.bind(this)}
+                            onPress={()=>this._sendMessage()}
                             underlayColor='#fff'>
                               <Image source={require('../images/ic_button_send_sms.png')}
                                      style={{width: 60, height: 60, marginLeft: 5}}/>
@@ -92,7 +124,7 @@ class Chat extends Component {
 
 mapStateToProps = state => {
     return {
-        conversation: state.chatsReducer.messages,
+        messages: state.chatsReducer.messages,
         id: state.user.userData.id,
     };
 }
