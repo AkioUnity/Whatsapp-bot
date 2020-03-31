@@ -11,8 +11,7 @@ class Chat extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            message: '',
-            messages:''
+            message: ''
         };
     }
 
@@ -20,7 +19,11 @@ class Chat extends Component {
         console.log("chat Did Mound");
         // console.log(this.props);
         this.props.fetchMessages(this.props.navigation.state.params.user_id,this.props.id);
-        this.setState({messages:this.props.messages});
+        this._interval = setInterval(() => this.loadData(), 2000);
+    }
+
+    async loadData() {
+        this.props.fetchMessages(this.props.navigation.state.params.user_id,this.props.id);
     }
 
     _sendMessage() {
@@ -45,8 +48,7 @@ class Chat extends Component {
           .catch(error => {
               console.log(error);
           });
-
-        let cur_messages=this.state.messages;
+        let cur_messages=this.props.messages;
         cur_messages.push({text:this.state.message,time:new Date(),sender_id:this.props.id});
         this.setState({message:'',messages:cur_messages});
     }
@@ -93,7 +95,7 @@ class Chat extends Component {
 
                       <View style={{flex: 1, paddingBottom: 20}}>
                           <FlatList
-                            data={this.state.messages}
+                            data={this.props.messages}
                             renderItem={({item}) => this.renderRow(item)}
                             keyExtractor={(item, index) => String(index)}
                           />
