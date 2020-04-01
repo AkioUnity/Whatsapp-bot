@@ -26,6 +26,11 @@ class Chat extends Component {
         this.props.fetchMessages(this.props.navigation.state.params.user_id,this.props.id);
     }
 
+    componentWillUnmount() {
+        console.log('chat componentWillUnmount');
+        clearInterval(this._interval);
+    }
+
     _sendMessage() {
         // this.props.sendMessage(this.state.message, this.props.id,this.props.navigation.state.params.user_id);
 
