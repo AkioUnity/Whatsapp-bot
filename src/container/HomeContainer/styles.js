@@ -42,7 +42,13 @@ export default {
         alignSelf: 'center'
     },
     titleText:{
+        margin:'auto',
+        padding:5,
         fontSize:w*0.07,
+        // backgroundColor:'#00974c',
+        textAlign: 'center',
+        color:'#ffffff',
+        width:'100%'
     },
     rightText:{
         textAlign: 'right',

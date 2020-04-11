@@ -38,7 +38,7 @@ class HomeContainer extends React.Component<Props, State> {
         super(props);
         this.state = {
             switchValue: false,
-            call_system: false,
+            status: false,
             request_cn: this.props.request_cn,
         };
     }
@@ -71,7 +71,7 @@ class HomeContainer extends React.Component<Props, State> {
 
     toggleSwitch1 = (value) => {
         //onValueChange of the switch this function will be called
-        this.setState({call_system: value});
+        this.setState({status: value});
     };
 
     render() {
@@ -87,8 +87,9 @@ class HomeContainer extends React.Component<Props, State> {
                 <Image square style={global.logoImage} source={require('../../../assets/whatsapp/lamoga.png')}/>
                 <Card>
                     <CardItem>
+                        <Left/>
                         <Body>
-                        <Text>{I18n.t('Messenger_systems')}</Text>
+                        <Text>Pause</Text>
                         </Body>
                         <Right>
                             <Switch
@@ -97,17 +98,23 @@ class HomeContainer extends React.Component<Props, State> {
                         </Right>
                     </CardItem>
                     <CardItem>
+                        <Left>
+                            <Text>Offline</Text>
+                        </Left>
                         <Body>
-                        <Text>{I18n.t('Call_system')}</Text>
+                        <Switch style={{ width:'50%'}}
+//                        ,transform: [{ scaleX: 1.5 }, { scaleY: 1.5 }]
+                        onValueChange={this.toggleSwitch1}
+                          value={this.state.status}/>
                         </Body>
                         <Right>
-                            <Switch
-                              onValueChange={this.toggleSwitch1}
-                              value={this.state.call_system}/>
+                            <Text>Online</Text>
                         </Right>
                     </CardItem>
-                    <CardItem footer bordered>
-                        <Text style={styles.titleText}>{I18n.t('Requests')}:</Text>
+                    <CardItem >
+                        <Body style={{backgroundColor:this.state.status?'#66D888':'#EB4024'}}>
+                        <Text style={styles.titleText} >{this.state.status?'ONLINE':'OFFLINE'}</Text>
+                        </Body>
                     </CardItem>
                     <CardItem>
                         <Body>
