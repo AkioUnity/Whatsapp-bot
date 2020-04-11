@@ -95,7 +95,6 @@ export const fetchAllChats = user_id=> {
     fetch(url)
     .then(response => {
       response.json().then(data => {
-        console.log(data);
         dispatch({
           type: Fetch_ChatList,
           chatList:data,

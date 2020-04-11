@@ -8,12 +8,10 @@ import {
     ADD_NEW_CONTACT_SUCCESS,
     CONTACTS_LIST,
     CHANGE_MESSAGE,
-    SEND_MESSAGE_SUCCESS,
-    LIST_CONVERSATION_USER,
 } from '../resources/types';
 import Config from "../global/config";
 import {Load_Messages} from "../global/action-names";
-import {fetchIsLoading, reportUserSuccess} from "./user";
+import {fetchIsLoading} from "./user";
 
 /* added to redux */
 export const addContact = (email) => {
@@ -110,16 +108,6 @@ export const fetchMessages = (user1, user2) => {
               console.error(error);
               dispatch(fetchIsLoading(false));
           });
-    }
-
-    return dispatch => {
-        firebase.database().ref(`/messages/${user_email_encode}/${contact_email_encode}`)
-          .on('value', snapshot => {
-              dispatch({
-                  type: LIST_CONVERSATION_USER,
-                  payload: snapshot.val()
-              })
-          })
     }
 }
 

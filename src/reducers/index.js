@@ -3,7 +3,6 @@ import user from "./user";
 
 import AppReducer from './AppReducer';
 import ListContactsReducer from './ListContactsReducer';
-import ListConversation from './ListConversation';
 import chatsReducer from './chatsReducer';
 
 export default ({
@@ -11,6 +10,5 @@ export default ({
   user,
   AppReducer,
   ListContactsReducer,
-  ListConversation,
   chatsReducer
 });

@@ -93,7 +93,9 @@ class Chat extends Component {
                   <Body>
                   <Title>{this.props.navigation.state.params.name}</Title>
                   </Body>
-                  <Right/>
+                  <Right>
+                      <Text style={{fontSize: 18}}>{this.props.navigation.state.params.balance}€</Text>
+                  </Right>
               </Header>
               <Content>
                   <View style={{flex: 1, marginTop: 5, backgroundColor: '#eee4dc', padding: 10}}>

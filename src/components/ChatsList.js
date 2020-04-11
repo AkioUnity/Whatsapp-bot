@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import base64 from 'base-64';
 import {View, Image, TouchableHighlight, FlatList, YellowBox} from 'react-native';
-import {Text} from 'native-base';
+import {Text,Right} from 'native-base';
 
 import {connect} from 'react-redux';
 import {
@@ -41,6 +41,7 @@ class ChatsList extends Component {
                     title: chatContent.name,
                     name: chatContent.name,
                     user_id: chatContent.user_id,
+                    balance:chatContent.balance
                 }); }
               }>
               <View style={{flex: 1, flexDirection: 'row', padding: 15, borderBottomWidth: 1, borderColor: "#b7b7b7"}}>
@@ -49,6 +50,9 @@ class ChatsList extends Component {
                       <Text style={{fontSize: 23, fontWeight: 'bold'}}>{chatContent.name}</Text>
                       <Text style={{fontSize: 13}}>{chatContent.lastMessage}</Text>
                   </View>
+                  <Right>
+                    <Text style={{fontSize: 18}}>{chatContent.balance}€</Text>
+                  </Right>
               </View>
           </TouchableHighlight>
         )
