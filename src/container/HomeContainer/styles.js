@@ -50,6 +50,12 @@ export default {
         color:'#ffffff',
         width:'100%'
     },
+    pauseText:{
+        margin:'auto',
+        padding:5,
+        width:'100%',
+        alignSelf:'center',
+    },
     rightText:{
         textAlign: 'right',
     }

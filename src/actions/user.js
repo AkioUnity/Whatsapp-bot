@@ -1,9 +1,10 @@
 import Config from "../global/config";
-import firebase from "./AppActions";
 import _ from "lodash";
 import {Load_Messages,Fetch_ChatList} from '../global/action-names';
 
 export const REPORT = 'REPORT';
+export const ActionOnlineStatus = 'OnlineStatus';
+export const ActionPauseTime = 'PauseTime';
 export const USER_REPORT = 'USER_REPORT';
 export const FETCH_ATTEMPT= 'FETCH_ATTEMPT';
 
@@ -60,6 +61,21 @@ export function cockpit_request(report: Object) {
       });
   };
 }
+
+export function change_online_status(status) {
+  return {
+      type: ActionOnlineStatus,
+      payload:status
+    };
+}
+
+export function put_pause_time(time) {
+  return {
+      type: ActionPauseTime,
+      payload:time
+  };
+}
+
 
 export function reportUser(user: Object) {
   return dispatch => {

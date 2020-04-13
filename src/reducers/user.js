@@ -1,4 +1,4 @@
-import {REPORT, USER_REPORT,FETCH_ATTEMPT} from "../actions/user";
+import {REPORT, USER_REPORT, FETCH_ATTEMPT, ActionOnlineStatus, ActionPauseTime} from "../actions/user";
 import { LOGIN_ATTEMPT, LOGIN_FAILED, LOGIN_SUCCESSFULLY,LOGIN_RESET_CONTROL_VARS, LOGIN_LOGOUT } from "../global/action-names";
 
 const initialState = {
@@ -9,7 +9,9 @@ const initialState = {
   userData: {},
   isLogged : false,
   hasError: false,
-  resetNavigation: undefined
+  resetNavigation: undefined,
+  onlineStatus:true,
+  pauseTime:undefined
 };
 
 export default function (state:any = initialState, action){
@@ -55,6 +57,16 @@ export default function (state:any = initialState, action){
       return {
         ...state,
         request_cn: action.response.count,
+      };
+    case ActionOnlineStatus:
+      return {
+        ...state,
+        onlineStatus: action.payload,
+      };
+    case ActionPauseTime:
+      return {
+        ...state,
+        pauseTime: action.payload,
       };
     case USER_REPORT:
       return {

@@ -1,4 +1,4 @@
-import firebase from 'firebase';
+
 import base64 from 'base-64';
 import _ from 'lodash';
 
@@ -23,41 +23,11 @@ export const addContact = (email) => {
 
 export const registerNewContact = (email) => {
     return dispatch => {
-        let emailContactB64 = base64.encode(email);
-
-        firebase.database().ref(`/users/${emailContactB64}`)
-          .once('value').then(snapshot => {
-            if (snapshot.val()) {
-                /* Guest email for new contact */
-                const userData = _.first(_.values(snapshot.val()));
-                /* Currently authenticated user */
-                const {currentUser} = firebase.auth();
-                let currentEmailB64 = base64.encode(currentUser.email);
-
-                firebase.database().ref(`/users_of_contacts/${currentEmailB64}`)
-                  .push({email, name: userData.name})
-                  .then(() => registerNewContactSuccess(dispatch))
-                  .catch(error => registerNewContactError(error, dispatch))
-            } else {
-                dispatch({type: ADD_NEW_CONTACT_ERROR, payload: '[App] The user does not exist!'})
-            }
-        })
     }
 }
 
 export const fetchContacts = (emailLoggedIn) => {
-    /* A solução sera ao carregar a aplicação, atualizar o emailLoggedIn  no AppReducer para que aplicação não quebre
-    devido ao componentWillMount tentar passar um valor inexistente, fazer um função que que buscar o currentUser e
-    da dispatch atualizando na store e deixar o email = ''... assim qunado tiver retorno atualizar os contatos
-    */
     return (dispatch) => {
-        firebase.database().ref(`/users_of_contacts/${emailLoggedIn}`)
-          .on("value", snapshot => {
-              dispatch({
-                  type: CONTACTS_LIST,
-                  payload: snapshot.val()
-              })
-          })
     }
 }
 
