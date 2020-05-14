@@ -34,6 +34,7 @@ class ChatsList extends Component {
     }
 
     renderRow(chatContent) {
+        let icon_name=chatContent.type=='facebook'?require(`../../assets/whatsapp/facebook.png`):require(`../../assets/whatsapp/whatsapp.png`);
         return (
           <TouchableHighlight
             onPress={() =>{
@@ -41,7 +42,9 @@ class ChatsList extends Component {
                     title: chatContent.name,
                     name: chatContent.name,
                     user_id: chatContent.user_id,
-                    balance:chatContent.balance
+                    balance:chatContent.balance,
+                    f_page_id:chatContent.customer_phone,
+                    type:chatContent.type
                 }); }
               }>
               <View style={{flex: 1, flexDirection: 'row', padding: 15, borderBottomWidth: 1, borderColor: "#b7b7b7"}}>
@@ -51,6 +54,7 @@ class ChatsList extends Component {
                       <Text style={{fontSize: 13}}>{chatContent.lastMessage}</Text>
                   </View>
                   <Right>
+                      <Image source={icon_name} style={{width: 25, height: 25}} />
                     <Text style={{fontSize: 18}}>{chatContent.balance}€</Text>
                   </Right>
               </View>

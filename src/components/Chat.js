@@ -11,19 +11,21 @@ class Chat extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            message: ''
+            message: '',
+            type:this.props.navigation.state.params.type,
+            f_page_id:this.props.navigation.state.params.f_page_id
         };
     }
 
     componentDidMount() {
-        console.log("chat Did Mound");
+        console.log("chat Did Mount");
         // console.log(this.props);
-        this.props.fetchMessages(this.props.navigation.state.params.user_id,this.props.id);
+        this.props.fetchMessages(this.props.navigation.state.params.user_id,this.state.type);
         this._interval = setInterval(() => this.loadData(), 2000);
     }
 
     async loadData() {
-        this.props.fetchMessages(this.props.navigation.state.params.user_id,this.props.id);
+        this.props.fetchMessages(this.props.navigation.state.params.user_id,this.props.id,this.state.type);
     }
 
     componentWillUnmount() {
@@ -33,8 +35,8 @@ class Chat extends Component {
 
     _sendMessage() {
         // this.props.sendMessage(this.state.message, this.props.id,this.props.navigation.state.params.user_id);
-
-        fetch(Config.Api_URL + 'users/sendMessage', {
+        let url=this.state.type=='whatsapp'?Config.Api_URL+ 'users/sendMessage':Config.Facebook_URL+'send';
+        fetch(url, {
             method: "post",
             headers: {
                 Accept: 'application/json',
@@ -43,7 +45,8 @@ class Chat extends Component {
             body: JSON.stringify({
                 text: this.state.message,
                 sender_id: this.props.id,
-                receiver_id: this.props.navigation.state.params.user_id
+                receiver_id: this.props.navigation.state.params.user_id,
+                page_id:this.state.f_page_id
             })
         }).then(response => {
             response.json().then(data => {
@@ -82,6 +85,7 @@ class Chat extends Component {
     }
 
     render() {
+        let icon_name=this.state.type=='facebook'?require(`../../assets/whatsapp/facebook.png`):require(`../../assets/whatsapp/whatsapp.png`);
         return (
           <Container>
               <Header>
@@ -94,7 +98,8 @@ class Chat extends Component {
                   <Title>{this.props.navigation.state.params.name}</Title>
                   </Body>
                   <Right>
-                      <Text style={{fontSize: 18}}>{this.props.navigation.state.params.balance}€</Text>
+                      <Text style={{fontSize: 18}}>{this.props.navigation.state.params.balance}€  </Text>
+                      <Image source={icon_name} style={{width: 30, height: 30}} />
                   </Right>
               </Header>
               <Content>

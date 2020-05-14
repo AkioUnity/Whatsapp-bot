@@ -61,9 +61,9 @@ export const sendMessage = (message, sender_id, receiver_id,messages) => {
     }
 }
 
-export const fetchMessages = (user1, user2) => {
+export const fetchMessages = (user1, user2,type) => {
     return dispatch => {
-        let url = Config.Api_URL + 'phone/messages/' + user1 + '/' + user2;
+        let url = Config.Api_URL + 'phone/messages/' + user1 + '/' + user2+ '/' + type;
         console.log(url);
         fetch(url)
           .then(response => {

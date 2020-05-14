@@ -14,6 +14,7 @@ export default {
     // BASE_URL : "http://192.168.1.53/ci-safety/api",
     BASE_URL : 'https://www.lamoga.de/api/',
     Api_URL : 'https://www.lomago.io/whatsapp/api/',
+    Facebook_URL : 'https://www.lomago.io:1337/',
     AJAX_URL : 'https://www.lamoga.de/wp-admin/admin-ajax.php',
     ROUTE_LOGIN : 'user/generate_auth_cookie/',
     Authorization:'Basic ZGVtbzpkZW1v'
