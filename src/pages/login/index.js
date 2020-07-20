@@ -36,7 +36,7 @@ class Login extends React.Component<Props, State> {
                           this.props.isLogged ?
                             <View style={{marginBottom:10}}>
                                 <Text style={styles.helloText}>
-                                    Hello {this.props.userData.displayname}
+                                    Hello {this.props.userData.display_name}
                                 </Text>
                                 <Button full onPress={this.props.onLogout}>
                                     <Text >Logout</Text>

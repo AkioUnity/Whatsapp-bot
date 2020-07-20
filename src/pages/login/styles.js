@@ -24,10 +24,11 @@ const styles: any = StyleSheet.create({
     width:width,
     height:45,
     borderRadius: 21,
-    marginBottom:h*0.02,
+    marginBottom:2,
     marginLeft:0,
-    padding:h*0.02,
+    paddingHorizontal:5,
     fontSize: 12,
+    alignSelf:'center'
   },
   loginRadius:{
     backgroundColor: '#387EF5',

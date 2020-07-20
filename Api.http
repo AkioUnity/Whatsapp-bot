@@ -1,0 +1,25 @@
+# For a quick start check out our HTTP Requests collection (Tools|HTTP Client|Open HTTP Requests Collection).
+#
+# Following HTTP Request Live Templates are available:
+# * 'gtrp' and 'gtr' create a GET request with or without query parameters;
+# * 'ptr' and 'ptrp' create a POST request with a simple or parameter-like body;
+# * 'mptr' and 'fptr' create a POST request to submit a form with a text or file field (multipart/form-data);
+
+POST https://www.lamoga.de/api/user/generate_auth_cookie/
+Authorization: Basic ZGVtbzpkZW1v
+Accept: application/json
+Content-Type: application/x-www-form-urlencoded
+
+username=pistelberater&password=pisteltest88
+#username=akioUnity@gmail.com&password=godjwth10
+###
+
+POST https://www.lamoga.de/wp-admin/admin-ajax.php
+Authorization: Basic ZGVtbzpkZW1v
+Accept: application/json
+Content-Type: application/x-www-form-urlencoded
+
+action=login_api&username=akioUnity@gmail.com&password=godjwth101
+#username=akioUnity@gmail.com&password=godjwth10
+
+###

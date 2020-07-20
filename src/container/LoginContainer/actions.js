@@ -9,8 +9,6 @@ import {
 import {_INITIAL_STATE_} from '../../reducers/user';
 import {setUser} from '../../actions/user';
 
-const URL = `${Config.BASE_URL}${Config.ROUTE_LOGIN}`;
-
 export function loginIsLoading(bool: boolean) {
     return {
         type: LOGIN_ATTEMPT,
@@ -64,13 +62,13 @@ export function doLogin(userValues: Object) {
         // userValues.password='godjwth10';
         console.log('login:', userValues.userName, userValues.password);
         let formdata = new FormData();
+        formdata.append('action', 'login_api');
         formdata.append('username', userValues.userName);
         formdata.append('password', userValues.password);
-        fetch(URL, {
+        fetch(Config.AJAX_URL, {
             method: 'post',
             headers: {
-                Accept: 'application/json',
-                'Content-Type': 'multipart/form-data',
+                // 'Content-Type': 'application/x-www-form-urlencoded',
                 Authorization: Config.Authorization,
             },
             body: formdata,
@@ -84,7 +82,8 @@ export function doLogin(userValues: Object) {
                     } else {
                         // data=JSON.parse(data);
                         if (!data.error) {
-                            const userData = data.user;
+                            data.data.id=data.data.ID;
+                            const userData = data.data;
                             // userData.id=104;
                             console.log('userData: ', userData);
                             dispatch(setUser(userData));
