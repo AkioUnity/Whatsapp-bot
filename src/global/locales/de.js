@@ -10,7 +10,7 @@ export default {
   Callback_requests: 'Rückruf Anfragen',
   overall: 'insgesamt',
   date_requests: 'Terminwunsche',
-  Email: 'Email',
+  Email: 'Benutzername oder Email',
   Password: 'Passwort',
   Login_Success: 'Erfolgreich eingeloggt',
   Log_in: 'Anmeldung',

@@ -10,7 +10,7 @@ export default {
   Callback_requests: 'Callback requests',
   overall: 'overall',
   date_requests: 'date requests',
-  Email: 'Email',
+  Email: 'Username or e-mail',
   Password: 'Password',
   Login_Success: 'Login Success',
   Log_in: 'Log in',

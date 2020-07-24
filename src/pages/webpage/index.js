@@ -12,44 +12,6 @@ import {
 } from "native-base";
 import styles from "./styles";
 
-const datas = [
-  {
-    name: "Home",
-    key: "Home",
-    icon: "home"
-  },
-  {
-    name: "Course Library",
-    key: "course",
-    icon: "arrow-up"
-  },
-  {
-    name: "Performance Tracker",
-    key: "tracker",
-    icon: "arrow-down"
-  },
-  {
-    name: "Quick Reference Guide",
-    key: "reference",
-    icon: "repeat"
-  },
-  {
-    name: "Support",
-    key: "support",
-    icon: "easel"
-  },
-  {
-    name: "User Guide",
-    key: "guide",
-    icon: "notifications"
-  },
-  {
-    name: "safety Website",
-    key: "website",
-    icon: "radio-button-off"
-  }
-];
-
 class WebPage extends Component {
   render() {
     const {navigation} = this.props;

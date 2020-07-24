@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Image} from 'react-native';
+import {Linking, Image} from 'react-native';
 import global from '../../global/styles';
 import {Container, Content, Button, Text, View, Icon, Spinner} from 'native-base';
 // import {LoginButton, AccessToken} from 'react-native-fbsdk';
@@ -20,6 +20,13 @@ export interface State {
 }
 
 class Login extends React.Component<Props, State> {
+    forgotPassword = () => {
+        Linking.openURL('https://www.lamoga.de/login/?action=lostpassword').catch(err => console.error("Couldn't load page", err));
+    };
+
+    privacyPolicy = () => {
+        Linking.openURL('https://www.lamoga.de/datenschutz/').catch(err => console.error("Couldn't load page", err));
+    };
 
     render() {
         const isLoading = this.props.isLoading;
@@ -60,12 +67,12 @@ class Login extends React.Component<Props, State> {
                             </View>
                       }
                       <View>
-                          <Button transparent onPress={() => this.props.navigation.navigate('SignUpRoute')}>
+                          <Button transparent onPress={() => this.forgotPassword()}>
                               <Text style={{fontSize: 14}}>{I18n.t('Forgot_your_Password')}?</Text>
                           </Button>
                       </View>
                       <View>
-                          <Button transparent onPress={() => this.props.navigation.navigate('SignUpRoute')}>
+                          <Button transparent onPress={() => this.privacyPolicy()}>
                               <Text style={{fontSize: 14}}>{I18n.t('Privacy_Policy')}</Text>
                           </Button>
                       </View>
