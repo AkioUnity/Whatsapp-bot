@@ -1,0 +1,42 @@
+{
+  "data": {
+    "ID": "105",
+    "user_login": "Irina",
+    "user_pass": "$P$B1l0G96\/EaK1EU0evU6MuSarTfNwJ01",
+    "user_nicename": "irina",
+    "user_email": "irina@lamoga.de",
+    "user_url": "",
+    "user_registered": "2019-07-26 22:33:16",
+    "user_activation_key": "",
+    "user_status": "0",
+    "display_name": "Irina"
+  },
+  "ID": 105,
+  "caps": {
+    "contributor": true,
+    "bbp_participant": true
+  },
+  "cap_key": "yincfgKlcapabilities",
+  "roles": [
+    "contributor",
+    "bbp_participant"
+  ],
+  "allcaps": {
+    "edit_posts": true,
+    "read": true,
+    "level_1": true,
+    "level_0": true,
+    "delete_posts": true,
+    "spectate": true,
+    "participate": true,
+    "read_private_forums": true,
+    "publish_topics": true,
+    "edit_topics": true,
+    "publish_replies": true,
+    "edit_replies": true,
+    "assign_topic_tags": true,
+    "contributor": true,
+    "bbp_participant": true
+  },
+  "filter": null
+}

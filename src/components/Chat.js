@@ -46,7 +46,8 @@ class Chat extends Component {
                 text: this.state.message,
                 sender_id: this.props.id,
                 receiver_id: this.props.navigation.state.params.user_id,
-                page_id:this.state.f_page_id
+                page_id:this.state.f_page_id,
+                type:this.state.type
             })
         }).then(response => {
             response.json().then(data => {
@@ -86,6 +87,7 @@ class Chat extends Component {
 
     render() {
         let icon_name=this.state.type=='facebook'?require(`../../assets/whatsapp/facebook.png`):require(`../../assets/whatsapp/whatsapp.png`);
+        icon_name=this.state.type=='telegram'?require(`../../assets/whatsapp/telegram.png`):icon_name;
         return (
           <Container>
               <Header>

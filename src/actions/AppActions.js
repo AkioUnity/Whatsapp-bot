@@ -6,7 +6,6 @@ import {
     ADD_CONTACT,
     ADD_NEW_CONTACT_ERROR,
     ADD_NEW_CONTACT_SUCCESS,
-    CONTACTS_LIST,
     CHANGE_MESSAGE,
 } from '../resources/types';
 import Config from "../global/config";

@@ -35,6 +35,10 @@ class ChatsList extends Component {
 
     renderRow(chatContent) {
         let icon_name=chatContent.type=='facebook'?require(`../../assets/whatsapp/facebook.png`):require(`../../assets/whatsapp/whatsapp.png`);
+        icon_name=chatContent.type=='telegram'?require(`../../assets/whatsapp/telegram.png`):icon_name;
+        let lastMessage=chatContent.lastMessage;
+        if (lastMessage)
+            lastMessage=lastMessage.slice(0,30);
         return (
           <TouchableHighlight
             onPress={() =>{
@@ -50,8 +54,11 @@ class ChatsList extends Component {
               <View style={{flex: 1, flexDirection: 'row', padding: 15, borderBottomWidth: 1, borderColor: "#b7b7b7"}}>
                   <Image source={{uri: chatContent.profileImage}} style={{width: 50, height: 50, borderRadius: 50}}/>
                   <View style={{marginLeft: 15}}>
-                      <Text style={{fontSize: 23, fontWeight: 'bold'}}>{chatContent.name}</Text>
-                      <Text style={{fontSize: 13}}>{chatContent.lastMessage}</Text>
+                      <Text
+                      style={{fontSize: 12, color: '#999999', textAlign: 'right'}}>{chatContent.time}
+                      </Text>
+                      <Text style={{fontSize: 22, fontWeight: 'bold'}}>{chatContent.name}</Text>
+                      <Text style={{fontSize: 13}}>{lastMessage}</Text>
                   </View>
                   <Right>
                       <Image source={icon_name} style={{width: 25, height: 25}} />

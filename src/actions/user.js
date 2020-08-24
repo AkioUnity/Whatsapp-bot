@@ -107,10 +107,11 @@ export const fetchAllChats = user_id=> {
   return dispatch => {
     // user_id=104;
     let url=Config.Api_URL+'phone/chats/'+user_id;
-    console.log(url);
+    // console.log(url);
     fetch(url)
     .then(response => {
       response.json().then(data => {
+        // console.log(data);
         dispatch({
           type: Fetch_ChatList,
           chatList:data,

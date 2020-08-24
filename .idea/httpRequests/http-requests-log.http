@@ -1,0 +1,247 @@
+POST https://www.lamoga.de/wp-admin/admin-ajax.php
+Authorization: Basic ZGVtbzpkZW1v
+Accept: application/json
+Content-Type: application/x-www-form-urlencoded
+
+action=login_api&username=Irina&password=Berlin2019!
+
+<> 2020-08-24T051446.200.json
+
+###
+
+POST https://www.lamoga.de/wp-admin/admin-ajax.php
+Authorization: Basic ZGVtbzpkZW1v
+Accept: application/json
+Content-Type: application/x-www-form-urlencoded
+
+action=login_api&username=akioUnity@gmail.com&password=godjwth101
+
+<> 2020-08-24T050933.200.json
+
+###
+
+POST https://www.lamoga.de/api/user/generate_auth_cookie/
+Authorization: Basic ZGVtbzpkZW1v
+Accept: application/json
+Content-Type: application/x-www-form-urlencoded
+
+username=pistelberater&password=pisteltest88
+
+<> 2020-07-21T033231.200.json
+
+###
+
+POST https://www.lamoga.de/wp-admin/admin-ajax.php
+Authorization: Basic ZGVtbzpkZW1v
+Accept: application/json
+Content-Type: application/x-www-form-urlencoded
+
+action=login_api&username=akioUnity@gmail.com&password=godjwth101
+
+<> 2020-07-21T032141.200.json
+
+###
+
+POST https://www.lamoga.de/wp-admin/admin-ajax.php
+Authorization: Basic ZGVtbzpkZW1v
+Accept: application/json
+Content-Type: application/x-www-form-urlencoded
+
+action=login_api&username=akioUnity@gmail.com&password=godjwth101
+
+<> 2020-07-21T031002.200.json
+
+###
+
+POST https://www.lamoga.de/wp-admin/admin-ajax.php
+Authorization: Basic ZGVtbzpkZW1v
+Accept: application/json
+Content-Type: application/x-www-form-urlencoded
+
+action=login_api&username=akioUnity@gmail.com&password=godjwth101
+
+<> 2020-07-21T025835.200.json
+
+###
+
+POST https://www.lamoga.de/wp-admin/admin-ajax.php
+Authorization: Basic ZGVtbzpkZW1v
+Accept: application/json
+Content-Type: application/x-www-form-urlencoded
+
+action=login_api&username=akioUnity@gmail.com&password=godjwth10
+
+<> 2020-07-21T012407.200.json
+
+###
+
+POST https://www.lamoga.de/wp-admin/admin-ajax.php
+Authorization: Basic ZGVtbzpkZW1v
+Accept: application/json
+Content-Type: application/x-www-form-urlencoded
+
+action=login_api&username=akioUnity@gmail.com&password=godjwth10
+
+<> 2020-07-21T012331.200.json
+
+###
+
+POST https://www.lamoga.de/wp-admin/admin-ajax.php
+Authorization: Basic ZGVtbzpkZW1v
+Accept: application/json
+Content-Type: application/x-www-form-urlencoded
+
+action=login_api&username=akioUnity@gmail.com&password=godjwth10
+
+<> 2020-07-21T012138.400.html
+
+###
+
+POST https://www.lamoga.de/wp-admin/admin-ajax.php
+Authorization: Basic ZGVtbzpkZW1v
+Accept: application/json
+Content-Type: application/x-www-form-urlencoded
+
+action=cockpit_action&username=akioUnity@gmail.com&password=godjwth10
+
+<> 2020-07-21T011642.200.json
+
+###
+
+POST https://www.lamoga.de/wp-admin/admin-ajax.php
+Authorization: Basic ZGVtbzpkZW1v
+Accept: application/json
+Content-Type: application/x-www-form-urlencoded
+
+action=cockpit_action&username=akioUnity@gmail.com&password=godjwth10
+
+<> 2020-07-20T071355.200.json
+
+###
+
+POST https://www.lamoga.de/wp-admin/admin-ajax.php
+Authorization: Basic ZGVtbzpkZW1v
+Accept: application/json
+Content-Type: application/x-www-form-urlencoded
+
+action=cockpit_action&offline=0&wait_minute=5000
+
+<> 2020-07-20T065845.200.json
+
+###
+
+GET https://www.lamoga.de/wp-json/custom-plugin/login
+Authorization: Basic ZGVtbzpkZW1v
+Accept: application/json
+Content-Type: application/x-www-form-urlencoded
+
+username=pistelberater&password=pisteltest88
+
+<> 2020-07-20T064019.404.json
+
+###
+
+POST https://www.lamoga.de/wp-json/wp/v2
+Authorization: Basic ZGVtbzpkZW1v
+Accept: application/json
+Content-Type: application/x-www-form-urlencoded
+
+username=pistelberater&password=pisteltest88
+
+<> 2020-07-20T045118.404.json
+
+###
+
+POST https://www.lamoga.de/api/user/generate_auth_cookie/
+Authorization: Basic ZGVtbzpkZW1v
+Accept: application/json
+Content-Type: application/x-www-form-urlencoded
+
+username=pistelberater&password=pisteltest88
+
+<> 2020-07-20T043805.200.json
+
+###
+
+POST https://www.lamoga.de/api/user/generate_auth_cookie/
+Authorization: Basic ZGVtbzpkZW1v
+Accept: application/json
+Content-Type: application/x-www-form-urlencoded
+
+username=pistelberater&password=pisteltest88
+
+<> 2020-07-20T034812.200.json
+
+###
+
+POST https://www.lamoga.de/api/user/generate_auth_cookie/
+Authorization: Basic ZGVtbzpkZW1v
+Accept: application/json
+Content-Type: application/x-www-form-urlencoded
+
+username=pistelberater&password=pisteltest88
+
+<> 2020-07-16T053121.200.json
+
+###
+
+POST https://www.lamoga.de/api/user/generate_auth_cookie/
+Authorization: Basic ZGVtbzpkZW1v
+Accept: application/json
+Content-Type: application/x-www-form-urlencoded
+
+username=pistelberater&password=pisteltest88
+
+<> 2020-07-16T052717.200.json
+
+###
+
+POST https://www.lamoga.de/api/user/generate_auth_cookie/
+Authorization: Basic ZGVtbzpkZW1v
+Content-Type: application/x-www-form-urlencoded
+
+username=pistelberater&password=pisteltest88
+
+<> 2020-07-16T052629.200.json
+
+###
+
+POST https://www.lamoga.de/api/user/generate_auth_cookie/
+Authorization: Basic ZGVtbzpkZW1v
+Content-Type: application/x-www-form-urlencoded
+username=pistelberater&password=pisteltest88:
+
+<> 2020-07-16T052557.400.html
+
+###
+
+POST https://www.lamoga.de/api/user/generate_auth_cookie/
+Authorization: Basic ZGVtbzpkZW1v
+Content-Type: application/x-www-form-urlencoded
+Accept: application/json
+username=pistelberater&password=pisteltest88:
+
+<> 2020-07-16T052442.400.html
+
+###
+
+POST https://www.lamoga.de/api/user/generate_auth_cookie/
+Authorization: Basic ZGVtbzpkZW1v
+Content-Type: application/x-www-form-urlencoded
+
+username=pistelberater&password=pisteltest88
+
+<> 2020-07-16T052317.200.json
+
+###
+
+POST https://www.lamoga.de/api/user/generate_auth_cookie/
+Authorization: Basic ZGVtbzpkZW1v
+Content-Type: application/x-www-form-urlencoded
+
+username=akioUnity@gmail.com&password=godjwth10
+
+<> 2020-07-16T051808.200.json
+
+###
+
