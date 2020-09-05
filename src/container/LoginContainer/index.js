@@ -88,10 +88,9 @@ class LoginForm extends React.Component<Props, State> {
     };
 
     loginSuccess() {
-        console.log('login Success');
         Toast.show(I18n.t('Login_Success'), {
             duration: Toast.durations.LONG,
-            position: Toast.positions.BOTTOM,
+            position: -100,
             shadow: true,
             animation: true,
             hideOnPress: true,
@@ -112,7 +111,7 @@ class LoginForm extends React.Component<Props, State> {
             // Add a Toast on screen.
             Toast.show(error, {
                 duration: Toast.durations.LONG,
-                position: Toast.positions.BOTTOM,
+                position: -140,
                 shadow: true,
                 animation: true,
                 hideOnPress: true,
