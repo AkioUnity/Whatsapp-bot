@@ -22,7 +22,7 @@
     "i18n-js": "^3.5.0",
     "immutable": "^4.0.0-rc.12",
     "lodash": "4.17.10",
-    "moment": "2.24.0",
+    "moment": "2.29.2",
     "native-base": "^2.13.12",
     "prop-types": "^15.6.2",
     "react": "^16.13.0",
